@@ -46,7 +46,9 @@ app.get('/api/health', (req, res) => {
     environment: process.env.NODE_ENV
   });
 });
-
+app.get('/', (req, res) => {
+  res.status(200).send('🏥 HealthAI API is running');
+});
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/chat', chatRoutes);
