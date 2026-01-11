@@ -10,6 +10,7 @@ import authRoutes from './routes/authRoutes.js';
 import chatRoutes from './routes/chatRoutes.js';
 import blogRoutes from './routes/blogRoutes.js';
 import commentRoutes from './routes/commentRoutes.js';
+import reportRoutes from './routes/reportRoutes.js';
 
 // Initialize Express app
 const app = express();
@@ -74,6 +75,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/chat', chatRoutes);
 app.use('/api/blogs', blogRoutes);
 app.use('/api/comments', commentRoutes);
+app.use('/api/reports', reportRoutes);
 
 // 404 handler
 app.use(notFound);

@@ -84,5 +84,23 @@ export const commentAPI = {
   toggleLike: (id) => api.post(`/comments/${id}/like`)
 }
 
+/**
+ * Report Analysis API endpoints
+ */
+export const reportAPI = {
+  // Analyze a new report (multipart/form-data)
+  analyzeReport: (formData) => api.post('/reports/analyze', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' }
+  }),
+  // Get user's report history
+  getReports: (params) => api.get('/reports', { params }),
+  // Get single report
+  getReport: (id) => api.get(`/reports/${id}`),
+  // Delete report
+  deleteReport: (id) => api.delete(`/reports/${id}`),
+  // Re-analyze existing report
+  reanalyzeReport: (id) => api.post(`/reports/${id}/reanalyze`)
+}
+
 export default api
 

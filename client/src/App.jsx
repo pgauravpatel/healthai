@@ -11,6 +11,8 @@ import Blogs from './pages/Blogs'
 import BlogDetail from './pages/BlogDetail'
 import Profile from './pages/Profile'
 import Bookmarks from './pages/Bookmarks'
+import ReportAnalyzer from './pages/ReportAnalyzer'
+import ReportHistory from './pages/ReportHistory'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import BlogEditor from './pages/admin/BlogEditor'
 import NotFound from './pages/NotFound'
@@ -105,6 +107,16 @@ export default function App() {
       <Route path="/bookmarks" element={
         <ProtectedRoute>
           <Layout><Bookmarks /></Layout>
+        </ProtectedRoute>
+      } />
+
+      {/* Report Analyzer Routes */}
+      <Route path="/report-analyzer" element={
+        <Layout><ReportAnalyzer /></Layout>
+      } />
+      <Route path="/reports/history" element={
+        <ProtectedRoute>
+          <Layout><ReportHistory /></Layout>
         </ProtectedRoute>
       } />
 

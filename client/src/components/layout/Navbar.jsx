@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
   Menu, X, Sun, Moon, User, LogOut, Settings, 
-  BookOpen, MessageCircle, Home, LayoutDashboard 
+  BookOpen, MessageCircle, Home, LayoutDashboard, FileSearch 
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { UserAvatar } from '@/components/ui/Avatar'
@@ -15,6 +15,7 @@ const navLinks = [
   { href: '/', label: 'Home', icon: Home },
   { href: '/blogs', label: 'Health Blog', icon: BookOpen },
   { href: '/chat', label: 'AI Assistant', icon: MessageCircle },
+  { href: '/report-analyzer', label: 'Report Analyzer', icon: FileSearch },
 ]
 
 export default function Navbar() {
@@ -144,6 +145,14 @@ export default function Navbar() {
                           >
                             <BookOpen className="w-4 h-4" />
                             Bookmarks
+                          </Link>
+                          <Link
+                            to="/reports/history"
+                            onClick={() => setUserMenuOpen(false)}
+                            className="flex items-center gap-2 w-full px-3 py-2 text-sm rounded-lg hover:bg-accent transition-colors"
+                          >
+                            <FileSearch className="w-4 h-4" />
+                            Report History
                           </Link>
                           <hr className="my-2" />
                           <button
