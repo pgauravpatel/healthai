@@ -139,10 +139,12 @@ export const generateToken = (userId) => {
  * Set Token Cookie
  */
 export const setTokenCookie = (res, token) => {
+  const isProduction = process.env.NODE_ENV === 'production';
+  
   const cookieOptions = {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: process.env.NODE_ENV === 'production' ? 'strict' : 'lax',
+    secure: isProduction, // HTTPS only in production
+    sameSite: isProduction ? 'none' : 'lax', // 'none' required for cross-origin
     maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
   };
 
@@ -153,8 +155,12 @@ export const setTokenCookie = (res, token) => {
  * Clear Token Cookie
  */
 export const clearTokenCookie = (res) => {
+  const isProduction = process.env.NODE_ENV === 'production';
+  
   res.cookie('token', '', {
     httpOnly: true,
+    secure: isProduction,
+    sameSite: isProduction ? 'none' : 'lax',
     expires: new Date(0)
   });
 };
