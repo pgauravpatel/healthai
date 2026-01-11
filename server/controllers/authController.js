@@ -227,3 +227,32 @@ export const getBookmarks = asyncHandler(async (req, res) => {
   });
 });
 
+/**
+ * @desc    Update user language preference
+ * @route   PUT /api/auth/language
+ * @access  Private
+ */
+export const updateLanguage = asyncHandler(async (req, res) => {
+  const { language } = req.body;
+  const supportedLanguages = ['en', 'hi', 'es'];
+
+  if (!language || !supportedLanguages.includes(language)) {
+    return res.status(400).json({
+      success: false,
+      message: `Invalid language. Supported: ${supportedLanguages.join(', ')}`
+    });
+  }
+
+  const user = await User.findByIdAndUpdate(
+    req.user._id,
+    { language },
+    { new: true }
+  );
+
+  res.json({
+    success: true,
+    message: 'Language preference updated',
+    language: user.language
+  });
+});
+

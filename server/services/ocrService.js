@@ -1,5 +1,5 @@
 import Tesseract from 'tesseract.js';
-import pdf from 'pdf-parse';
+import pdfParse from 'pdf-parse-fork';
 import fs from 'fs/promises';
 import path from 'path';
 
@@ -53,7 +53,7 @@ class OCRService {
     try {
       console.log('Starting PDF text extraction...');
       
-      const data = await pdf(pdfBuffer);
+      const data = await pdfParse(pdfBuffer);
       const extractedText = data.text;
       
       if (!extractedText || extractedText.trim().length < 10) {

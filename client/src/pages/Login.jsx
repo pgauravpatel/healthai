@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { Mail, Lock, Eye, EyeOff, LogIn } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
 import { useAuth } from '@/context/AuthContext'
 import { useToast } from '@/context/ToastContext'
+import Seo from '@/components/seo/Seo'
 
 export default function Login() {
+  const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
@@ -23,9 +26,9 @@ export default function Login() {
 
   const validate = () => {
     const newErrors = {}
-    if (!email) newErrors.email = 'Email is required'
-    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Invalid email format'
-    if (!password) newErrors.password = 'Password is required'
+    if (!email) newErrors.email = t('auth.emailRequired')
+    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = t('auth.emailRequired')
+    if (!password) newErrors.password = t('auth.passwordRequired')
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
@@ -37,10 +40,10 @@ export default function Login() {
     setLoading(true)
     try {
       await login(email, password)
-      toast.success('Welcome back!')
+      toast.success(t('auth.loginSuccess'))
       navigate(from, { replace: true })
     } catch (error) {
-      toast.error(error.message || 'Login failed')
+      toast.error(error.message || t('auth.invalidCredentials'))
       setErrors({ general: error.message })
     } finally {
       setLoading(false)
@@ -48,7 +51,15 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex">
+    <>
+      <Seo
+        title={t('seo.loginTitle')}
+        description={t('seo.loginDescription')}
+        canonicalUrl="/login"
+        noIndex={false}
+      />
+      
+      <div className="min-h-screen flex">
       {/* Left Side - Form */}
       <div className="flex-1 flex items-center justify-center p-8">
         <motion.div
@@ -64,9 +75,9 @@ export default function Login() {
             <span className="font-bold text-xl gradient-text">HealthAI</span>
           </Link>
 
-          <h1 className="text-3xl font-bold mb-2">Welcome back</h1>
+          <h1 className="text-3xl font-bold mb-2">{t('auth.welcomeBack')}</h1>
           <p className="text-muted-foreground mb-8">
-            Sign in to continue your health journey
+            {t('auth.createAccountSubtitle')}
           </p>
 
           {errors.general && (
@@ -77,7 +88,7 @@ export default function Login() {
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium mb-2">Email</label>
+              <label className="block text-sm font-medium mb-2">{t('auth.email')}</label>
               <Input
                 type="email"
                 value={email}
@@ -89,7 +100,7 @@ export default function Login() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Password</label>
+              <label className="block text-sm font-medium mb-2">{t('auth.password')}</label>
               <div className="relative">
                 <Input
                   type={showPassword ? 'text' : 'password'}
@@ -115,20 +126,20 @@ export default function Login() {
                 <span className="text-muted-foreground">Remember me</span>
               </label>
               <Link to="/forgot-password" className="text-primary hover:underline">
-                Forgot password?
+                {t('auth.forgotPassword')}
               </Link>
             </div>
 
             <Button type="submit" className="w-full" size="lg" loading={loading}>
               <LogIn className="w-4 h-4" />
-              Sign In
+              {t('auth.login')}
             </Button>
           </form>
 
           <p className="mt-8 text-center text-muted-foreground">
-            Don't have an account?{' '}
+            {t('auth.noAccount')}{' '}
             <Link to="/register" className="text-primary hover:underline font-medium">
-              Create one
+              {t('auth.signUp')}
             </Link>
           </p>
 
@@ -152,14 +163,14 @@ export default function Login() {
             <span className="text-5xl">🏥</span>
           </div>
           <h2 className="text-3xl font-bold mb-4">
-            Your Health, Our Priority
+            {t('home.heroTitle')}
           </h2>
           <p className="text-white/80 text-lg">
-            Get personalized health insights, browse wellness articles, and chat with our AI assistant for guidance on your health journey.
+            {t('home.heroSubtitle')}
           </p>
         </motion.div>
       </div>
     </div>
+    </>
   )
 }
-

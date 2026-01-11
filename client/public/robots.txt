@@ -1,0 +1,42 @@
+# HealthAI Robots.txt
+# https://healthai.vercel.app
+
+User-agent: *
+Allow: /
+
+# Allow all search engines to crawl
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Dynamic Sitemap location (generated from database)
+Sitemap: https://healthai-wmjx.onrender.com/api/sitemap.xml
+
+# Disallow private/admin areas from indexing
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /chat/history
+Disallow: /reports/history
+Disallow: /profile
+Disallow: /bookmarks
+
+# Allow SEO landing pages
+Allow: /ai-health-report-analyzer
+Allow: /blood-test-analysis
+Allow: /cholesterol-report-ai
+Allow: /about
+Allow: /blogs
+Allow: /blogs/*
+Allow: /blogs/category/*
+Allow: /report-analyzer
+Allow: /disclaimer
+
+# Allow disease/health condition pages
+Allow: /diseases
+Allow: /diseases/*
+
+# Crawl-delay for politeness
+Crawl-delay: 1
+

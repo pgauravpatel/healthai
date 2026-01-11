@@ -1,30 +1,35 @@
 import { useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
-  Menu, X, Sun, Moon, User, LogOut, Settings, 
-  BookOpen, MessageCircle, Home, LayoutDashboard, FileSearch 
+  Menu, X, Sun, Moon, User, LogOut, 
+  BookOpen, MessageCircle, Home, LayoutDashboard, FileSearch, Globe, Info, Heart
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { UserAvatar } from '@/components/ui/Avatar'
+import LanguageSelector from '@/components/LanguageSelector'
 import { useAuth } from '@/context/AuthContext'
 import { useTheme } from '@/context/ThemeContext'
 import { cn } from '@/lib/utils'
 
-const navLinks = [
-  { href: '/', label: 'Home', icon: Home },
-  { href: '/blogs', label: 'Health Blog', icon: BookOpen },
-  { href: '/chat', label: 'AI Assistant', icon: MessageCircle },
-  { href: '/report-analyzer', label: 'Report Analyzer', icon: FileSearch },
-]
-
 export default function Navbar() {
+  const { t } = useTranslation()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const { user, isAuthenticated, isAdmin, logout } = useAuth()
   const { theme, toggleTheme } = useTheme()
   const navigate = useNavigate()
   const location = useLocation()
+
+  // Navigation links with translations
+  const navLinks = [
+    { href: '/', label: t('navbar.home'), icon: Home },
+    { href: '/diseases', label: t('navbar.healthConditions', 'Health Conditions'), icon: Heart },
+    { href: '/ai-health-report-analyzer', label: t('navbar.reportAnalyzer'), icon: FileSearch },
+    { href: '/blogs', label: t('navbar.blog'), icon: BookOpen },
+    { href: '/chat', label: t('navbar.aiAssistant'), icon: MessageCircle },
+  ]
 
   const handleLogout = async () => {
     await logout()
@@ -71,18 +76,23 @@ export default function Navbar() {
                 )}
               >
                 <LayoutDashboard className="w-4 h-4" />
-                Admin
+                {t('navbar.admin')}
               </Link>
             )}
           </div>
 
           {/* Right Side */}
           <div className="flex items-center gap-2">
+            {/* Language Selector - Desktop */}
+            <div className="hidden sm:block">
+              <LanguageSelector variant="compact" />
+            </div>
+
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
               className="p-2 rounded-xl hover:bg-accent transition-colors"
-              aria-label="Toggle theme"
+              aria-label={t('navbar.theme')}
             >
               {theme === 'dark' ? (
                 <Sun className="w-5 h-5 text-amber-400" />
@@ -128,7 +138,7 @@ export default function Navbar() {
                             className="flex items-center gap-2 w-full px-3 py-2 text-sm rounded-lg hover:bg-accent transition-colors"
                           >
                             <User className="w-4 h-4" />
-                            Profile
+                            {t('navbar.profile')}
                           </Link>
                           <Link
                             to="/chat/history"
@@ -136,7 +146,7 @@ export default function Navbar() {
                             className="flex items-center gap-2 w-full px-3 py-2 text-sm rounded-lg hover:bg-accent transition-colors"
                           >
                             <MessageCircle className="w-4 h-4" />
-                            Chat History
+                            {t('navbar.chatHistory')}
                           </Link>
                           <Link
                             to="/bookmarks"
@@ -144,7 +154,7 @@ export default function Navbar() {
                             className="flex items-center gap-2 w-full px-3 py-2 text-sm rounded-lg hover:bg-accent transition-colors"
                           >
                             <BookOpen className="w-4 h-4" />
-                            Bookmarks
+                            {t('navbar.bookmarks')}
                           </Link>
                           <Link
                             to="/reports/history"
@@ -152,15 +162,25 @@ export default function Navbar() {
                             className="flex items-center gap-2 w-full px-3 py-2 text-sm rounded-lg hover:bg-accent transition-colors"
                           >
                             <FileSearch className="w-4 h-4" />
-                            Report History
+                            {t('navbar.reportHistory')}
                           </Link>
+                          
+                          {/* Language Selector in Dropdown */}
+                          <div className="px-3 py-2 sm:hidden">
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                              <Globe className="w-4 h-4" />
+                              {t('navbar.language')}
+                            </div>
+                            <LanguageSelector variant="compact" />
+                          </div>
+                          
                           <hr className="my-2" />
                           <button
                             onClick={handleLogout}
                             className="flex items-center gap-2 w-full px-3 py-2 text-sm rounded-lg hover:bg-destructive/10 text-destructive transition-colors"
                           >
                             <LogOut className="w-4 h-4" />
-                            Logout
+                            {t('navbar.logout')}
                           </button>
                         </div>
                       </motion.div>
@@ -171,10 +191,10 @@ export default function Navbar() {
             ) : (
               <div className="hidden sm:flex items-center gap-2">
                 <Button variant="ghost" asChild>
-                  <Link to="/login">Log in</Link>
+                  <Link to="/login">{t('navbar.login')}</Link>
                 </Button>
                 <Button variant="gradient" asChild>
-                  <Link to="/register">Get Started</Link>
+                  <Link to="/register">{t('navbar.register')}</Link>
                 </Button>
               </div>
             )}
@@ -228,20 +248,31 @@ export default function Navbar() {
                   className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium hover:bg-accent"
                 >
                   <LayoutDashboard className="w-5 h-5" />
-                  Admin Dashboard
+                  {t('navbar.admin')}
                 </Link>
               )}
+
+              {/* Mobile Language Selector */}
+              <div className="px-4 py-3 border-t border-border/50 mt-2">
+                <div className="flex items-center justify-between">
+                  <span className="flex items-center gap-2 text-sm font-medium">
+                    <Globe className="w-5 h-5" />
+                    {t('navbar.language')}
+                  </span>
+                  <LanguageSelector variant="compact" />
+                </div>
+              </div>
 
               {!isAuthenticated && (
                 <div className="pt-4 space-y-2 border-t">
                   <Button variant="outline" className="w-full" asChild>
                     <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
-                      Log in
+                      {t('navbar.login')}
                     </Link>
                   </Button>
                   <Button variant="gradient" className="w-full" asChild>
                     <Link to="/register" onClick={() => setMobileMenuOpen(false)}>
-                      Get Started
+                      {t('navbar.register')}
                     </Link>
                   </Button>
                 </div>
@@ -253,4 +284,3 @@ export default function Navbar() {
     </nav>
   )
 }
-

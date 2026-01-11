@@ -7,7 +7,8 @@ import {
   updateProfile,
   changePassword,
   toggleBookmark,
-  getBookmarks
+  getBookmarks,
+  updateLanguage
 } from '../controllers/authController.js';
 import { protect } from '../middlewares/auth.js';
 import { validate, registerSchema, loginSchema, updateProfileSchema, changePasswordSchema } from '../middlewares/validate.js';
@@ -28,6 +29,9 @@ router.put('/password', protect, validate(changePasswordSchema), changePassword)
 // Bookmarks
 router.post('/bookmark/:blogId', protect, toggleBookmark);
 router.get('/bookmarks', protect, getBookmarks);
+
+// Language preference
+router.put('/language', protect, updateLanguage);
 
 export default router;
 

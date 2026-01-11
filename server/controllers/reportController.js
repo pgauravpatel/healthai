@@ -23,6 +23,9 @@ export const analyzeReport = asyncHandler(async (req, res) => {
   const { buffer, mimetype, originalname } = req.file;
   const userId = req.user._id;
 
+  // Get language preference (from body or user profile)
+  const language = req.body.language || req.user?.language || 'en';
+
   // Parse optional user profile from form data
   let userProfile = null;
   try {
@@ -65,8 +68,8 @@ export const analyzeReport = asyncHandler(async (req, res) => {
     // Detect report type
     report.reportType = ocrService.detectReportType(text);
     
-    // Step 2: Analyze with AI
-    const analysisResult = await reportAnalysisService.analyzeReport(text, userProfile);
+    // Step 2: Analyze with AI (with language support)
+    const analysisResult = await reportAnalysisService.analyzeReport(text, userProfile, language);
     
     // Step 3: Update report with analysis
     report.aiResponse = analysisResult.analysis;
@@ -213,13 +216,17 @@ export const reanalyzeReport = asyncHandler(async (req, res) => {
     });
   }
 
+  // Get language preference (from body or user profile)
+  const language = req.body.language || req.user?.language || 'en';
+
   const startTime = Date.now();
 
   try {
-    // Re-analyze with AI
+    // Re-analyze with AI (with language support)
     const analysisResult = await reportAnalysisService.analyzeReport(
       report.rawExtractedText,
-      report.userProfile
+      report.userProfile,
+      language
     );
 
     // Update report

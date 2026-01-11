@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { 
   CheckCircle, AlertTriangle, AlertCircle, ArrowUp, ArrowDown, 
@@ -9,20 +10,24 @@ import { Badge } from '@/components/ui/Badge'
 /**
  * Get status color and icon based on test status
  */
-const getStatusInfo = (status) => {
-  switch (status) {
-    case 'normal':
-      return { color: 'text-green-500', bg: 'bg-green-500/10', icon: CheckCircle, label: 'Normal' }
-    case 'high':
-      return { color: 'text-amber-500', bg: 'bg-amber-500/10', icon: ArrowUp, label: 'High' }
-    case 'low':
-      return { color: 'text-blue-500', bg: 'bg-blue-500/10', icon: ArrowDown, label: 'Low' }
-    case 'critical_high':
-      return { color: 'text-red-500', bg: 'bg-red-500/10', icon: AlertTriangle, label: 'Critical High' }
-    case 'critical_low':
-      return { color: 'text-red-500', bg: 'bg-red-500/10', icon: AlertTriangle, label: 'Critical Low' }
-    default:
-      return { color: 'text-muted-foreground', bg: 'bg-muted', icon: Minus, label: 'Unknown' }
+const useStatusInfo = () => {
+  const { t } = useTranslation()
+  
+  return (status) => {
+    switch (status) {
+      case 'normal':
+        return { color: 'text-green-500', bg: 'bg-green-500/10', icon: CheckCircle, label: t('report.status.normal') }
+      case 'high':
+        return { color: 'text-amber-500', bg: 'bg-amber-500/10', icon: ArrowUp, label: t('report.status.high') }
+      case 'low':
+        return { color: 'text-blue-500', bg: 'bg-blue-500/10', icon: ArrowDown, label: t('report.status.low') }
+      case 'critical_high':
+        return { color: 'text-red-500', bg: 'bg-red-500/10', icon: AlertTriangle, label: t('report.status.criticalHigh') }
+      case 'critical_low':
+        return { color: 'text-red-500', bg: 'bg-red-500/10', icon: AlertTriangle, label: t('report.status.criticalLow') }
+      default:
+        return { color: 'text-muted-foreground', bg: 'bg-muted', icon: Minus, label: 'Unknown' }
+    }
   }
 }
 
@@ -30,6 +35,8 @@ const getStatusInfo = (status) => {
  * Summary Card Component
  */
 function SummaryCard({ summary }) {
+  const { t } = useTranslation()
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -39,7 +46,7 @@ function SummaryCard({ summary }) {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Activity className="w-5 h-5 text-health-500" />
-            Summary
+            {t('report.summary')}
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -54,6 +61,9 @@ function SummaryCard({ summary }) {
  * Key Findings Card Component
  */
 function KeyFindingsCard({ findings }) {
+  const { t } = useTranslation()
+  const getStatusInfo = useStatusInfo()
+  
   if (!findings || findings.length === 0) return null
 
   // Sort findings: abnormal first
@@ -73,7 +83,7 @@ function KeyFindingsCard({ findings }) {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Stethoscope className="w-5 h-5 text-primary" />
-            Key Test Results
+            {t('report.keyFindings')}
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -128,6 +138,8 @@ function KeyFindingsCard({ findings }) {
  * Explanations Card Component
  */
 function ExplanationsCard({ explanations }) {
+  const { t } = useTranslation()
+  
   if (!explanations || explanations.length === 0) return null
 
   return (
@@ -140,7 +152,7 @@ function ExplanationsCard({ explanations }) {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Info className="w-5 h-5 text-blue-500" />
-            What These Results May Mean
+            {t('report.explanations')}
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -164,6 +176,8 @@ function ExplanationsCard({ explanations }) {
  * Lifestyle Suggestions Card Component
  */
 function LifestyleCard({ suggestions }) {
+  const { t } = useTranslation()
+  
   if (!suggestions || suggestions.length === 0) return null
 
   return (
@@ -176,7 +190,7 @@ function LifestyleCard({ suggestions }) {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Apple className="w-5 h-5 text-green-500" />
-            Lifestyle & Diet Suggestions
+            {t('report.lifestyle')}
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -198,6 +212,8 @@ function LifestyleCard({ suggestions }) {
  * Doctor Consultation Card Component
  */
 function DoctorAdviceCard({ advice }) {
+  const { t } = useTranslation()
+  
   if (!advice) return null
 
   return (
@@ -210,7 +226,7 @@ function DoctorAdviceCard({ advice }) {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Heart className="w-5 h-5 text-amber-500" />
-            When to Consult a Doctor
+            {t('report.doctorAdvice')}
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -225,6 +241,8 @@ function DoctorAdviceCard({ advice }) {
  * Disclaimer Card Component
  */
 function DisclaimerCard({ disclaimer }) {
+  const { t } = useTranslation()
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -237,11 +255,10 @@ function DisclaimerCard({ disclaimer }) {
             <AlertCircle className="w-6 h-6 text-red-500 flex-shrink-0" />
             <div>
               <h4 className="font-semibold text-red-600 dark:text-red-400 mb-2">
-                Medical Disclaimer
+                {t('report.disclaimer')}
               </h4>
               <p className="text-sm text-red-700 dark:text-red-300 leading-relaxed">
-                {disclaimer || `This analysis is for educational purposes only and is NOT a medical diagnosis. 
-                Please consult a qualified healthcare provider for proper medical advice and treatment.`}
+                {disclaimer || t('report.disclaimerText')}
               </p>
             </div>
           </div>
@@ -255,6 +272,8 @@ function DisclaimerCard({ disclaimer }) {
  * Main Analysis Result Component
  */
 export default function AnalysisResult({ analysis, reportType }) {
+  const { t } = useTranslation()
+  
   if (!analysis) return null
 
   return (
@@ -262,7 +281,7 @@ export default function AnalysisResult({ analysis, reportType }) {
       {/* Report Type Badge */}
       {reportType && (
         <div className="flex items-center gap-2">
-          <span className="text-sm text-muted-foreground">Report Type:</span>
+          <span className="text-sm text-muted-foreground">{t('report.reportType')}:</span>
           <Badge variant="default" className="capitalize">
             {reportType.replace(/_/g, ' ')}
           </Badge>
@@ -289,4 +308,3 @@ export default function AnalysisResult({ analysis, reportType }) {
     </div>
   )
 }
-

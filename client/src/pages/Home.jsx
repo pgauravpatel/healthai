@@ -1,59 +1,75 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { 
   MessageCircle, BookOpen, Heart, Shield, 
   Activity, Brain, Apple, Stethoscope, ArrowRight,
-  CheckCircle, Users, Sparkles
+  CheckCircle, Sparkles, FileSearch
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { useAuth } from '@/context/AuthContext'
-
-const features = [
-  {
-    icon: MessageCircle,
-    title: 'AI Health Assistant',
-    description: 'Get instant answers to your health questions with our AI-powered chatbot.',
-    color: 'from-blue-500 to-cyan-500'
-  },
-  {
-    icon: BookOpen,
-    title: 'Health Blog',
-    description: 'Expert articles on fitness, nutrition, mental health, and wellness.',
-    color: 'from-purple-500 to-pink-500'
-  },
-  {
-    icon: Shield,
-    title: 'Safe & Private',
-    description: 'Your health data is encrypted and never shared with third parties.',
-    color: 'from-green-500 to-emerald-500'
-  },
-  {
-    icon: Heart,
-    title: 'Lifestyle Guidance',
-    description: 'Personalized recommendations for a healthier lifestyle.',
-    color: 'from-red-500 to-orange-500'
-  }
-]
-
-const categories = [
-  { icon: Activity, label: 'Fitness', color: 'bg-blue-500' },
-  { icon: Brain, label: 'Mental Health', color: 'bg-purple-500' },
-  { icon: Apple, label: 'Nutrition', color: 'bg-green-500' },
-  { icon: Stethoscope, label: 'Wellness', color: 'bg-teal-500' }
-]
-
-const stats = [
-  { value: '10K+', label: 'Health Articles' },
-  { value: '50K+', label: 'Users Helped' },
-  { value: '24/7', label: 'AI Support' },
-  { value: '100%', label: 'Free to Use' }
-]
+import Seo, { organizationSchema, softwareSchema } from '@/components/seo/Seo'
+import EverydayHealthProblems from '@/components/home/EverydayHealthProblems'
 
 export default function Home() {
+  const { t } = useTranslation()
   const { isAuthenticated } = useAuth()
 
+  // Combined schema for homepage
+  const homeSchema = [organizationSchema, softwareSchema]
+
+  const features = [
+    {
+      icon: MessageCircle,
+      title: t('home.feature1Title'),
+      description: t('home.feature1Desc'),
+      color: 'from-blue-500 to-cyan-500'
+    },
+    {
+      icon: FileSearch,
+      title: t('home.feature2Title'),
+      description: t('home.feature2Desc'),
+      color: 'from-purple-500 to-pink-500'
+    },
+    {
+      icon: BookOpen,
+      title: t('home.feature3Title'),
+      description: t('home.feature3Desc'),
+      color: 'from-green-500 to-emerald-500'
+    },
+    {
+      icon: Shield,
+      title: t('report.securityFeature'),
+      description: t('report.securityDesc'),
+      color: 'from-red-500 to-orange-500'
+    }
+  ]
+
+  const categories = [
+    { icon: Activity, label: t('blog.fitness'), color: 'bg-blue-500' },
+    { icon: Brain, label: t('blog.mentalHealth'), color: 'bg-purple-500' },
+    { icon: Apple, label: t('blog.diet'), color: 'bg-green-500' },
+    { icon: Stethoscope, label: t('blog.lifestyle'), color: 'bg-teal-500' }
+  ]
+
+  const stats = [
+    { value: '10K+', label: t('blog.title') },
+    { value: '50K+', label: t('admin.totalUsers') },
+    { value: '24/7', label: t('navbar.aiAssistant') },
+    { value: '100%', label: 'Free' }
+  ]
+
   return (
-    <div className="overflow-hidden">
+    <>
+      <Seo
+        title={t('seo.homeTitle')}
+        description={t('seo.homeDescription')}
+        keywords={t('seo.homeKeywords')}
+        canonicalUrl="/"
+        schema={homeSchema}
+      />
+      
+      <div className="overflow-hidden">
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center">
         {/* Background */}
@@ -74,26 +90,24 @@ export default function Home() {
               </span>
               
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                Your Personal{' '}
-                <span className="gradient-text">Health Assistant</span>
+                {t('home.heroTitle')}
               </h1>
               
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Get instant health information, lifestyle guidance, and wellness tips. 
-                Powered by AI, designed for your wellbeing.
+                {t('home.heroSubtitle')}
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button size="xl" variant="gradient" asChild>
                   <Link to="/chat">
                     <MessageCircle className="w-5 h-5" />
-                    Start Health Chat
+                    {t('home.getStarted')}
                   </Link>
                 </Button>
                 <Button size="xl" variant="outline" asChild>
                   <Link to="/blogs">
                     <BookOpen className="w-5 h-5" />
-                    Browse Articles
+                    {t('home.exploreBlog')}
                   </Link>
                 </Button>
               </div>
@@ -102,15 +116,7 @@ export default function Home() {
               <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
                 <span className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-green-500" />
-                  No medical diagnosis
-                </span>
-                <span className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500" />
-                  General info only
-                </span>
-                <span className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-500" />
-                  Always consult doctors
+                  {t('disclaimers.ai').substring(0, 50)}...
                 </span>
               </div>
             </motion.div>
@@ -158,11 +164,10 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Everything You Need for{' '}
-              <span className="gradient-text">Better Health</span>
+              {t('home.features')}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive health information and guidance at your fingertips
+              {t('home.featuresSubtitle')}
             </p>
           </motion.div>
 
@@ -187,6 +192,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Everyday Health Problems Section */}
+      <EverydayHealthProblems />
+
       {/* Categories Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
@@ -197,11 +205,10 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Explore Health{' '}
-              <span className="gradient-text">Categories</span>
+              {t('blog.categories')}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Browse our extensive library of health topics
+              {t('blog.subtitle')}
             </p>
           </motion.div>
 
@@ -242,14 +249,14 @@ export default function Home() {
               <MessageCircle className="w-10 h-10 text-white" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Take Control of Your Health?
+              {t('home.ctaTitle')}
             </h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-              Start a conversation with our AI health assistant and get personalized wellness guidance today.
+              {t('home.ctaSubtitle')}
             </p>
             <Button size="xl" variant="gradient" asChild>
               <Link to={isAuthenticated ? '/chat' : '/register'}>
-                {isAuthenticated ? 'Start Chatting' : 'Get Started Free'}
+                {isAuthenticated ? t('home.getStarted') : t('home.ctaButton')}
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
@@ -261,13 +268,11 @@ export default function Home() {
       <section className="py-8 bg-amber-50 dark:bg-amber-900/10 border-y border-amber-200 dark:border-amber-800">
         <div className="container mx-auto px-4 text-center">
           <p className="text-sm text-amber-800 dark:text-amber-200">
-            <strong>⚕️ Important:</strong> HealthAI provides general health information only. 
-            It does not diagnose conditions or prescribe medications. 
-            Always consult a qualified healthcare professional for medical advice.
+            {t('disclaimers.medical')}
           </p>
         </div>
       </section>
     </div>
+    </>
   )
 }
-

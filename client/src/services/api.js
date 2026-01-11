@@ -37,6 +37,7 @@ export const authAPI = {
   getMe: () => api.get('/auth/me'),
   updateProfile: (data) => api.put('/auth/profile', data),
   changePassword: (data) => api.put('/auth/password', data),
+  updateLanguage: (language) => api.put('/auth/language', { language }),
   toggleBookmark: (blogId) => api.post(`/auth/bookmark/${blogId}`),
   getBookmarks: () => api.get('/auth/bookmarks')
 }
@@ -89,6 +90,7 @@ export const commentAPI = {
  */
 export const reportAPI = {
   // Analyze a new report (multipart/form-data)
+  // formData should include 'language' field for multilingual output
   analyzeReport: (formData) => api.post('/reports/analyze', formData, {
     headers: { 'Content-Type': 'multipart/form-data' }
   }),
@@ -98,8 +100,8 @@ export const reportAPI = {
   getReport: (id) => api.get(`/reports/${id}`),
   // Delete report
   deleteReport: (id) => api.delete(`/reports/${id}`),
-  // Re-analyze existing report
-  reanalyzeReport: (id) => api.post(`/reports/${id}/reanalyze`)
+  // Re-analyze existing report with optional language
+  reanalyzeReport: (id, language) => api.post(`/reports/${id}/reanalyze`, { language })
 }
 
 export default api

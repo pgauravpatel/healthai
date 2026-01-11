@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Upload, File, X, FileText, Image, AlertCircle } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/utils'
 
 const ALLOWED_TYPES = [
@@ -15,6 +15,7 @@ const ALLOWED_TYPES = [
 const MAX_SIZE = 10 * 1024 * 1024 // 10MB
 
 export default function FileUpload({ onFileSelect, disabled = false }) {
+  const { t } = useTranslation()
   const [dragActive, setDragActive] = useState(false)
   const [selectedFile, setSelectedFile] = useState(null)
   const [error, setError] = useState(null)
@@ -22,10 +23,10 @@ export default function FileUpload({ onFileSelect, disabled = false }) {
 
   const validateFile = (file) => {
     if (!ALLOWED_TYPES.includes(file.type)) {
-      return 'Invalid file type. Please upload a PDF or image (PNG, JPG, JPEG, WEBP).'
+      return t('errors.invalidFileType')
     }
     if (file.size > MAX_SIZE) {
-      return 'File too large. Maximum size is 10MB.'
+      return t('errors.fileTooBig')
     }
     return null
   }
@@ -161,13 +162,13 @@ export default function FileUpload({ onFileSelect, disabled = false }) {
                 <Upload className="w-8 h-8" />
               </div>
               <p className="text-lg font-medium mb-1">
-                {dragActive ? 'Drop your file here' : 'Upload your lab report'}
+                {t('report.uploadTitle')}
               </p>
               <p className="text-sm text-muted-foreground mb-4">
-                Drag and drop or click to browse
+                {t('report.uploadSubtitle')}
               </p>
               <p className="text-xs text-muted-foreground">
-                Supports PDF, PNG, JPG, JPEG, WEBP (max 10MB)
+                {t('report.supportedFormats')}
               </p>
             </motion.div>
           )}
@@ -191,4 +192,3 @@ export default function FileUpload({ onFileSelect, disabled = false }) {
     </div>
   )
 }
-

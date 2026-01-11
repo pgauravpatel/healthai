@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom'
-import { Heart, Github, Twitter, Mail } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { Heart, Github, Twitter, Mail, FileSearch, Droplets, Activity } from 'lucide-react'
 
 export default function Footer() {
+  const { t } = useTranslation()
   const currentYear = new Date().getFullYear()
 
   return (
     <footer className="bg-slate-50 dark:bg-slate-900/50 border-t border-border mt-auto">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand */}
-          <div className="md:col-span-1">
+          <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-health-500 to-mint-500 flex items-center justify-center">
                 <span className="text-white font-bold text-xl">+</span>
@@ -20,37 +22,75 @@ export default function Footer() {
               Your AI-powered healthcare assistant. Get general health information and lifestyle guidance.
             </p>
             <div className="flex gap-3">
-              <a href="#" className="p-2 rounded-lg hover:bg-accent transition-colors">
+              <a href="https://twitter.com/healthai" className="p-2 rounded-lg hover:bg-accent transition-colors" aria-label="Twitter">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="p-2 rounded-lg hover:bg-accent transition-colors">
+              <a href="https://github.com/healthai" className="p-2 rounded-lg hover:bg-accent transition-colors" aria-label="GitHub">
                 <Github className="w-5 h-5" />
               </a>
-              <a href="#" className="p-2 rounded-lg hover:bg-accent transition-colors">
+              <a href="mailto:contact@healthai.app" className="p-2 rounded-lg hover:bg-accent transition-colors" aria-label="Email">
                 <Mail className="w-5 h-5" />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* AI Tools - SEO Important */}
           <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
+            <h3 className="font-semibold mb-4">AI Health Tools</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/blogs" className="text-muted-foreground hover:text-primary transition-colors">Health Blog</Link></li>
-              <li><Link to="/chat" className="text-muted-foreground hover:text-primary transition-colors">AI Assistant</Link></li>
-              <li><Link to="/blogs?category=Fitness" className="text-muted-foreground hover:text-primary transition-colors">Fitness</Link></li>
-              <li><Link to="/blogs?category=Mental Health" className="text-muted-foreground hover:text-primary transition-colors">Mental Health</Link></li>
+              <li>
+                <Link to="/ai-health-report-analyzer" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1">
+                  <FileSearch className="w-3 h-3" /> Report Analyzer
+                </Link>
+              </li>
+              <li>
+                <Link to="/blood-test-analysis" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1">
+                  <Droplets className="w-3 h-3" /> Blood Test Analysis
+                </Link>
+              </li>
+              <li>
+                <Link to="/cholesterol-report-ai" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1">
+                  <Activity className="w-3 h-3" /> Cholesterol Analyzer
+                </Link>
+              </li>
+              <li>
+                <Link to="/chat" className="text-muted-foreground hover:text-primary transition-colors">
+                  AI Health Assistant
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Categories */}
+          {/* Health Conditions - SEO Links */}
           <div>
-            <h3 className="font-semibold mb-4">Categories</h3>
+            <h3 className="font-semibold mb-4">Health Conditions</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/blogs?category=Diet" className="text-muted-foreground hover:text-primary transition-colors">Diet & Nutrition</Link></li>
-              <li><Link to="/blogs?category=Diseases" className="text-muted-foreground hover:text-primary transition-colors">Diseases</Link></li>
-              <li><Link to="/blogs?category=Wellness" className="text-muted-foreground hover:text-primary transition-colors">Wellness</Link></li>
-              <li><Link to="/blogs?category=Prevention" className="text-muted-foreground hover:text-primary transition-colors">Prevention</Link></li>
+              <li><Link to="/diseases" className="text-muted-foreground hover:text-primary transition-colors">All Conditions</Link></li>
+              <li><Link to="/diseases/fungal-infection" className="text-muted-foreground hover:text-primary transition-colors">Fungal Infection</Link></li>
+              <li><Link to="/diseases/acidity" className="text-muted-foreground hover:text-primary transition-colors">Acidity & Heartburn</Link></li>
+              <li><Link to="/diseases/piles" className="text-muted-foreground hover:text-primary transition-colors">Piles (Hemorrhoids)</Link></li>
+              <li><Link to="/diseases/cold-cough" className="text-muted-foreground hover:text-primary transition-colors">Cold & Cough</Link></li>
+            </ul>
+          </div>
+
+          {/* Health Blog - SEO Category Links */}
+          <div>
+            <h3 className="font-semibold mb-4">Health Blog</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/blogs" className="text-muted-foreground hover:text-primary transition-colors">All Articles</Link></li>
+              <li><Link to="/blogs/category/fitness" className="text-muted-foreground hover:text-primary transition-colors">Fitness Articles</Link></li>
+              <li><Link to="/blogs/category/mental-health" className="text-muted-foreground hover:text-primary transition-colors">Mental Health</Link></li>
+              <li><Link to="/blogs/category/diet" className="text-muted-foreground hover:text-primary transition-colors">Diet & Nutrition</Link></li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h3 className="font-semibold mb-4">Company</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link to="/register" className="text-muted-foreground hover:text-primary transition-colors">Get Started</Link></li>
+              <li><Link to="/login" className="text-muted-foreground hover:text-primary transition-colors">Sign In</Link></li>
             </ul>
           </div>
 
@@ -68,9 +108,7 @@ export default function Footer() {
         {/* Medical Disclaimer Banner */}
         <div className="mt-8 p-4 bg-amber-50 dark:bg-amber-900/10 rounded-xl border border-amber-200 dark:border-amber-800">
           <p className="text-sm text-amber-800 dark:text-amber-200">
-            <strong>⚕️ Medical Disclaimer:</strong> HealthAI provides general health information for educational purposes only. 
-            It is not a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified 
-            healthcare provider for medical concerns.
+            <strong>⚕️ {t('common.important')}:</strong> {t('disclaimers.medical')}
           </p>
         </div>
 
@@ -87,4 +125,3 @@ export default function Footer() {
     </footer>
   )
 }
-

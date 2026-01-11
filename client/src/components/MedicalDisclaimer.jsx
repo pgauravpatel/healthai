@@ -1,9 +1,10 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { AlertTriangle, X, ChevronDown, ChevronUp } from 'lucide-react'
-import { MEDICAL_DISCLAIMER } from '@/lib/utils'
 
-export default function MedicalDisclaimer() {
+export default function MedicalDisclaimer({ variant = 'default' }) {
+  const { t } = useTranslation()
   const [dismissed, setDismissed] = useState(() => {
     return sessionStorage.getItem('disclaimer-dismissed') === 'true'
   })
@@ -12,6 +13,20 @@ export default function MedicalDisclaimer() {
   const handleDismiss = () => {
     setDismissed(true)
     sessionStorage.setItem('disclaimer-dismissed', 'true')
+  }
+
+  // Compact variant for pages
+  if (variant === 'compact') {
+    return (
+      <div className="p-4 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-amber-800 dark:text-amber-200">
+            {t('disclaimers.medical')}
+          </p>
+        </div>
+      </div>
+    )
   }
 
   if (dismissed) return null
@@ -29,7 +44,7 @@ export default function MedicalDisclaimer() {
           
           <div className="flex-1">
             <p className="text-sm text-amber-800 dark:text-amber-200">
-              <strong>Important:</strong> {MEDICAL_DISCLAIMER.short}
+              {t('disclaimers.ai')}
             </p>
             
             <AnimatePresence>
@@ -41,7 +56,7 @@ export default function MedicalDisclaimer() {
                   className="mt-2"
                 >
                   <p className="text-sm text-amber-700 dark:text-amber-300">
-                    {MEDICAL_DISCLAIMER.full}
+                    {t('disclaimers.medical')}
                   </p>
                 </motion.div>
               )}
@@ -52,9 +67,9 @@ export default function MedicalDisclaimer() {
               className="text-sm text-amber-600 dark:text-amber-400 hover:underline mt-1 flex items-center gap-1"
             >
               {expanded ? (
-                <>Show less <ChevronUp className="w-4 h-4" /></>
+                <>{t('common.close')} <ChevronUp className="w-4 h-4" /></>
               ) : (
-                <>Read full disclaimer <ChevronDown className="w-4 h-4" /></>
+                <>{t('common.readMore')} <ChevronDown className="w-4 h-4" /></>
               )}
             </button>
           </div>
@@ -74,18 +89,19 @@ export default function MedicalDisclaimer() {
 
 // Inline disclaimer for chat/responses
 export function InlineDisclaimer({ variant = 'default' }) {
+  const { t } = useTranslation()
+  
   if (variant === 'emergency') {
     return (
       <div className="emergency-banner text-sm">
-        <strong>🚨 Emergency:</strong> If you're experiencing a medical emergency, please call emergency services immediately.
+        {t('disclaimers.emergency')}
       </div>
     )
   }
 
   return (
     <div className="disclaimer-banner text-sm">
-      <strong>⚕️ Note:</strong> {MEDICAL_DISCLAIMER.short}
+      {t('disclaimers.ai')}
     </div>
   )
 }
-

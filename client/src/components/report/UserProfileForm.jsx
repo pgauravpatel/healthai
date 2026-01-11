@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { User, ChevronDown, ChevronUp } from 'lucide-react'
 import { Input } from '@/components/ui/Input'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function UserProfileForm({ profile, onChange }) {
+  const { t } = useTranslation()
   const [expanded, setExpanded] = useState(false)
 
   const handleChange = (field, value) => {
@@ -19,7 +21,7 @@ export default function UserProfileForm({ profile, onChange }) {
       >
         <div className="flex items-center gap-2 text-sm font-medium">
           <User className="w-4 h-4" />
-          Optional: Add Your Profile for Better Analysis
+          {t('report.userProfile')}
         </div>
         {expanded ? (
           <ChevronUp className="w-4 h-4" />
@@ -39,13 +41,13 @@ export default function UserProfileForm({ profile, onChange }) {
           >
             <div className="p-4 pt-0 space-y-4 border-t">
               <p className="text-xs text-muted-foreground">
-                Providing this information helps us give more relevant suggestions.
+                {t('report.userProfileHelp')}
               </p>
 
               <div className="grid sm:grid-cols-2 gap-4">
                 {/* Age */}
                 <div>
-                  <label className="block text-sm font-medium mb-1.5">Age</label>
+                  <label className="block text-sm font-medium mb-1.5">{t('report.age')}</label>
                   <Input
                     type="number"
                     value={profile.age || ''}
@@ -58,16 +60,16 @@ export default function UserProfileForm({ profile, onChange }) {
 
                 {/* Gender */}
                 <div>
-                  <label className="block text-sm font-medium mb-1.5">Gender</label>
+                  <label className="block text-sm font-medium mb-1.5">{t('report.gender')}</label>
                   <select
                     value={profile.gender || ''}
                     onChange={(e) => handleChange('gender', e.target.value)}
                     className="w-full h-11 px-4 rounded-xl border bg-background focus:outline-none focus:ring-2 focus:ring-primary"
                   >
-                    <option value="">Select gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
+                    <option value="">{t('report.selectGender')}</option>
+                    <option value="male">{t('report.male')}</option>
+                    <option value="female">{t('report.female')}</option>
+                    <option value="other">{t('report.other')}</option>
                   </select>
                 </div>
               </div>
@@ -75,16 +77,16 @@ export default function UserProfileForm({ profile, onChange }) {
               {/* Existing Conditions */}
               <div>
                 <label className="block text-sm font-medium mb-1.5">
-                  Known Health Conditions (optional)
+                  {t('report.conditions')}
                 </label>
                 <Input
                   type="text"
                   value={profile.conditions || ''}
                   onChange={(e) => handleChange('conditions', e.target.value)}
-                  placeholder="e.g., Diabetes, Hypertension (comma separated)"
+                  placeholder={t('report.conditionsPlaceholder')}
                 />
                 <p className="text-xs text-muted-foreground mt-1">
-                  Separate multiple conditions with commas
+                  {t('report.conditionsHelp')}
                 </p>
               </div>
             </div>
@@ -94,4 +96,3 @@ export default function UserProfileForm({ profile, onChange }) {
     </div>
   )
 }
-

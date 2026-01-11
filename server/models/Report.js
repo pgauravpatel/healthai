@@ -26,7 +26,7 @@ const reportSchema = new mongoose.Schema({
   },
   rawExtractedText: {
     type: String,
-    required: true
+    default: ''
   },
   userProfile: {
     age: Number,

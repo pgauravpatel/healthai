@@ -45,6 +45,11 @@ const userSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Blog'
   }],
+  language: {
+    type: String,
+    enum: ['en', 'hi', 'es'],
+    default: 'en'
+  },
   isActive: {
     type: Boolean,
     default: true

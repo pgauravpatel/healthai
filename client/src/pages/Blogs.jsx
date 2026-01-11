@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams, Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { Loader2 } from 'lucide-react'
 import BlogCard from '@/components/blog/BlogCard'
 import BlogFilter from '@/components/blog/BlogFilter'
 import { BlogCardSkeleton } from '@/components/ui/Skeleton'
 import { Button } from '@/components/ui/Button'
+import Seo from '@/components/seo/Seo'
 import { blogAPI } from '@/services/api'
 import { debounce } from '@/lib/utils'
 
 export default function Blogs() {
+  const { t } = useTranslation()
   const [searchParams, setSearchParams] = useSearchParams()
   const [blogs, setBlogs] = useState([])
   const [loading, setLoading] = useState(true)
@@ -84,7 +87,14 @@ export default function Blogs() {
   }
 
   return (
-    <div className="min-h-screen py-8">
+    <>
+      <Seo
+        title={t('seo.blogTitle')}
+        description={t('seo.blogDescription')}
+        keywords={t('seo.blogKeywords')}
+        canonicalUrl="/blogs"
+      />
+      <div className="min-h-screen py-8">
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -95,10 +105,31 @@ export default function Blogs() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Health <span className="gradient-text">Blog</span>
           </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
             Expert articles on fitness, nutrition, mental health, and wellness 
             to help you live your healthiest life.
           </p>
+          
+          {/* Category Quick Links - SEO Internal Linking */}
+          <div className="flex flex-wrap justify-center gap-2">
+            {[
+              { slug: 'fitness', label: '💪 Fitness', color: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400' },
+              { slug: 'mental-health', label: '🧠 Mental Health', color: 'bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400' },
+              { slug: 'diet', label: '🥗 Diet', color: 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400' },
+              { slug: 'diseases', label: '🏥 Diseases', color: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400' },
+              { slug: 'wellness', label: '✨ Wellness', color: 'bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-400' },
+              { slug: 'prevention', label: '🛡️ Prevention', color: 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400' },
+              { slug: 'lifestyle', label: '🌟 Lifestyle', color: 'bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-400' },
+            ].map(cat => (
+              <Link
+                key={cat.slug}
+                to={`/blogs/category/${cat.slug}`}
+                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-opacity hover:opacity-80 ${cat.color}`}
+              >
+                {cat.label}
+              </Link>
+            ))}
+          </div>
         </motion.div>
 
         {/* Filters */}
@@ -172,6 +203,7 @@ export default function Blogs() {
         )}
       </div>
     </div>
+    </>
   )
 }
 

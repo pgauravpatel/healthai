@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { FileSearch, Loader2, History, Sparkles, Shield, Clock } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
@@ -7,14 +8,18 @@ import FileUpload from '@/components/report/FileUpload'
 import UserProfileForm from '@/components/report/UserProfileForm'
 import AnalysisResult from '@/components/report/AnalysisResult'
 import MedicalDisclaimer from '@/components/MedicalDisclaimer'
+import Seo, { getMedicalWebPageSchema, softwareSchema } from '@/components/seo/Seo'
 import { reportAPI } from '@/services/api'
 import { useToast } from '@/context/ToastContext'
 import { useAuth } from '@/context/AuthContext'
+import { useLanguage } from '@/context/LanguageContext'
 import { Link } from 'react-router-dom'
 
 export default function ReportAnalyzer() {
+  const { t } = useTranslation()
   const { user } = useAuth()
   const { showToast } = useToast()
+  const { currentLanguage } = useLanguage()
   
   const [file, setFile] = useState(null)
   const [userProfile, setUserProfile] = useState({
@@ -28,7 +33,7 @@ export default function ReportAnalyzer() {
 
   const handleAnalyze = async () => {
     if (!file) {
-      showToast('Please select a file to analyze', 'error')
+      showToast(t('errors.invalidFileType'), 'error')
       return
     }
 
@@ -40,6 +45,9 @@ export default function ReportAnalyzer() {
       const formData = new FormData()
       formData.append('report', file)
       
+      // Add language for multilingual AI output
+      formData.append('language', currentLanguage)
+      
       // Add user profile if provided
       if (userProfile.age) formData.append('age', userProfile.age)
       if (userProfile.gender) formData.append('gender', userProfile.gender)
@@ -48,11 +56,11 @@ export default function ReportAnalyzer() {
       const response = await reportAPI.analyzeReport(formData)
       
       setResult(response.data.data)
-      showToast('Report analyzed successfully!', 'success')
+      showToast(t('common.success'), 'success')
 
     } catch (err) {
       console.error('Analysis error:', err)
-      const message = err.response?.data?.message || 'Failed to analyze report. Please try again.'
+      const message = err.response?.data?.message || t('errors.analysisError')
       setError(message)
       showToast(message, 'error')
     } finally {
@@ -67,31 +75,55 @@ export default function ReportAnalyzer() {
     setUserProfile({ age: '', gender: '', conditions: '' })
   }
 
+  // Schema for SEO
+  const reportSchema = getMedicalWebPageSchema(
+    t('seo.reportAnalyzerTitle'),
+    t('seo.reportAnalyzerDescription'),
+    'https://healthai.vercel.app/report-analyzer'
+  )
+
   // Not logged in state
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-health-500/5 via-background to-mint-500/5 py-12">
+      <>
+        <Seo
+          title={t('seo.reportAnalyzerTitle')}
+          description={t('seo.reportAnalyzerDescription')}
+          keywords={t('seo.reportAnalyzerKeywords')}
+          canonicalUrl="/report-analyzer"
+          schema={[reportSchema, softwareSchema]}
+        />
+        <div className="min-h-screen bg-gradient-to-br from-health-500/5 via-background to-mint-500/5 py-12">
         <div className="container max-w-2xl mx-auto px-4 text-center">
           <FileSearch className="w-16 h-16 mx-auto text-health-500 mb-4" />
-          <h1 className="text-3xl font-bold mb-4">AI Report Analyzer</h1>
+          <h1 className="text-3xl font-bold mb-4">{t('report.title')}</h1>
           <p className="text-muted-foreground mb-8">
-            Please log in to use the Health Report Analyzer feature.
+            {t('errors.unauthorized')}
           </p>
           <div className="flex gap-4 justify-center">
             <Button asChild>
-              <Link to="/login">Log In</Link>
+              <Link to="/login">{t('auth.login')}</Link>
             </Button>
             <Button variant="outline" asChild>
-              <Link to="/register">Sign Up</Link>
+              <Link to="/register">{t('auth.register')}</Link>
             </Button>
           </div>
         </div>
       </div>
+      </>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-health-500/5 via-background to-mint-500/5">
+    <>
+      <Seo
+        title={t('seo.reportAnalyzerTitle')}
+        description={t('seo.reportAnalyzerDescription')}
+        keywords={t('seo.reportAnalyzerKeywords')}
+        canonicalUrl="/report-analyzer"
+        schema={[reportSchema, softwareSchema]}
+      />
+      <div className="min-h-screen bg-gradient-to-br from-health-500/5 via-background to-mint-500/5">
       <div className="container max-w-4xl mx-auto px-4 py-12">
         {/* Header */}
         <motion.div
@@ -104,11 +136,10 @@ export default function ReportAnalyzer() {
             <span className="text-sm font-medium">AI-Powered Analysis</span>
           </div>
           <h1 className="text-4xl font-bold mb-4">
-            Health Report Analyzer
+            {t('report.title')}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Upload your lab report and get an easy-to-understand explanation of your results.
-            Our AI helps you understand what the numbers mean.
+            {t('report.subtitle')}
           </p>
         </motion.div>
 
@@ -123,27 +154,27 @@ export default function ReportAnalyzer() {
             <Card className="bg-card/50">
               <CardContent className="pt-6 text-center">
                 <FileSearch className="w-8 h-8 mx-auto text-health-500 mb-2" />
-                <h3 className="font-medium mb-1">OCR Extraction</h3>
+                <h3 className="font-medium mb-1">{t('report.ocrFeature')}</h3>
                 <p className="text-sm text-muted-foreground">
-                  Automatically reads text from PDFs and images
+                  {t('report.ocrDesc')}
                 </p>
               </CardContent>
             </Card>
             <Card className="bg-card/50">
               <CardContent className="pt-6 text-center">
                 <Shield className="w-8 h-8 mx-auto text-mint-500 mb-2" />
-                <h3 className="font-medium mb-1">Safe & Private</h3>
+                <h3 className="font-medium mb-1">{t('report.securityFeature')}</h3>
                 <p className="text-sm text-muted-foreground">
-                  Your data is encrypted and secure
+                  {t('report.securityDesc')}
                 </p>
               </CardContent>
             </Card>
             <Card className="bg-card/50">
               <CardContent className="pt-6 text-center">
                 <Clock className="w-8 h-8 mx-auto text-amber-500 mb-2" />
-                <h3 className="font-medium mb-1">Quick Results</h3>
+                <h3 className="font-medium mb-1">{t('report.speedFeature')}</h3>
                 <p className="text-sm text-muted-foreground">
-                  Get analysis in under a minute
+                  {t('report.speedDesc')}
                 </p>
               </CardContent>
             </Card>
@@ -185,12 +216,12 @@ export default function ReportAnalyzer() {
                   {loading ? (
                     <>
                       <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                      Analyzing Report...
+                      {t('report.analyzing')}
                     </>
                   ) : (
                     <>
                       <FileSearch className="w-5 h-5 mr-2" />
-                      Analyze Report
+                      {t('report.analyzeButton')}
                     </>
                   )}
                 </Button>
@@ -211,7 +242,7 @@ export default function ReportAnalyzer() {
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 <History className="w-4 h-4" />
-                View Report History
+                {t('report.viewHistory')}
               </Link>
             </div>
           </motion.div>
@@ -224,16 +255,16 @@ export default function ReportAnalyzer() {
           >
             {/* Actions Bar */}
             <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold">Analysis Results</h2>
+              <h2 className="text-xl font-semibold">{t('report.results')}</h2>
               <Button variant="outline" onClick={handleReset}>
-                Analyze Another Report
+                {t('report.analyzeAnother')}
               </Button>
             </div>
 
             {/* Processing Time Badge */}
             {result.processingTime && (
               <div className="text-sm text-muted-foreground">
-                Analyzed in {(result.processingTime / 1000).toFixed(1)}s
+                {t('report.processedIn')} {(result.processingTime / 1000).toFixed(1)}s
               </div>
             )}
 
@@ -246,10 +277,10 @@ export default function ReportAnalyzer() {
             {/* Action Buttons */}
             <div className="flex gap-4 pt-6">
               <Button onClick={handleReset} className="flex-1">
-                Analyze Another Report
+                {t('report.analyzeAnother')}
               </Button>
               <Button variant="outline" asChild className="flex-1">
-                <Link to="/reports/history">View History</Link>
+                <Link to="/reports/history">{t('report.viewHistory')}</Link>
               </Button>
             </div>
           </motion.div>
@@ -264,15 +295,15 @@ export default function ReportAnalyzer() {
           >
             <div className="text-center">
               <Loader2 className="w-12 h-12 animate-spin text-health-500 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Analyzing Your Report</h3>
+              <h3 className="text-xl font-semibold mb-2">{t('report.analyzing')}</h3>
               <p className="text-muted-foreground">
-                This may take a moment...
+                {t('report.analyzingSubtitle')}
               </p>
             </div>
           </motion.div>
         )}
       </div>
     </div>
+    </>
   )
 }
-
