@@ -14,6 +14,9 @@ import commentRoutes from './routes/commentRoutes.js';
 // Initialize Express app
 const app = express();
 
+// Trust proxy (needed for rate limiting behind reverse proxy like Render/Vercel)
+app.set('trust proxy', 1);
+
 // Security middleware
 app.use(helmet({
   crossOriginResourcePolicy: { policy: "cross-origin" }
