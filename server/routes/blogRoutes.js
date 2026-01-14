@@ -11,7 +11,8 @@ import {
   createBlog,
   updateBlog,
   deleteBlog,
-  togglePublish
+  togglePublish,
+  semanticSearch
 } from '../controllers/blogController.js';
 import { protect, adminOnly, optionalAuth } from '../middlewares/auth.js';
 import { validate, blogSchema, blogUpdateSchema } from '../middlewares/validate.js';
@@ -20,6 +21,7 @@ const router = express.Router();
 
 // Public routes
 router.get('/', getBlogs);
+router.get('/search', semanticSearch); // Multilingual semantic search (must be before :slug)
 router.get('/categories', getCategories);
 router.get('/tags', getTags);
 router.get('/:slug', optionalAuth, getBlog);

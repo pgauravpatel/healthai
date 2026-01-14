@@ -65,6 +65,12 @@ export const blogAPI = {
   toggleLike: (id) => api.post(`/blogs/${id}/like`),
   getRelatedBlogs: (id) => api.get(`/blogs/${id}/related`),
   
+  // Multilingual semantic search (Vinmec-style)
+  // Supports Hindi, Hinglish, and English queries
+  semanticSearch: (query, params = {}) => api.get('/blogs/search', { 
+    params: { q: query, ...params } 
+  }),
+  
   // Admin endpoints
   getAdminBlogs: (params) => api.get('/blogs/admin/all', { params }),
   getAdminBlog: (id) => api.get(`/blogs/admin/${id}`),

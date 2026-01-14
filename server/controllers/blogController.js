@@ -1,5 +1,6 @@
 import Blog from '../models/Blog.js';
 import { asyncHandler } from '../middlewares/errorHandler.js';
+import { detectLanguage, buildMultilingualSearchQuery } from '../utils/languageDetector.js';
 
 /**
  * @desc    Get all published blogs
@@ -55,6 +56,177 @@ export const getBlogs = asyncHandler(async (req, res) => {
       pages: Math.ceil(total / parseInt(limit))
     }
   });
+});
+
+/**
+ * @desc    Semantic search for blogs (Multilingual - Hindi/Hinglish/English)
+ * @route   GET /api/blogs/search
+ * @access  Public
+ * 
+ * This endpoint enables Vinmec-style SEO behavior:
+ * - Hindi queries match English blogs via intentKeywords.hi
+ * - Hinglish queries match via intentKeywords.hinglish
+ * - Returns matchedIntentLanguage and confidenceScore
+ */
+export const semanticSearch = asyncHandler(async (req, res) => {
+  const { q, limit = 10, page = 1 } = req.query;
+
+  if (!q || q.trim().length < 2) {
+    return res.status(400).json({
+      success: false,
+      message: 'Search query must be at least 2 characters'
+    });
+  }
+
+  const searchQuery = q.trim();
+  
+  // Detect language of the search query
+  const languageDetection = detectLanguage(searchQuery);
+  const { language: detectedLanguage, confidence } = languageDetection;
+
+  // Build search query based on detected language
+  const mongoQuery = buildMultilingualSearchQuery(searchQuery, detectedLanguage);
+  
+  // Add published filter
+  mongoQuery.isPublished = true;
+
+  const skip = (parseInt(page) - 1) * parseInt(limit);
+
+  try {
+    // First try with text search scoring
+    let blogs = [];
+    let total = 0;
+
+    if (detectedLanguage === 'hi' || detectedLanguage === 'hinglish') {
+      // For Hindi/Hinglish, use regex-based search for better matching
+      const searchRegex = new RegExp(searchQuery, 'i');
+      
+      const orConditions = [
+        { 'intentKeywords.hi': searchRegex },
+        { 'intentKeywords.hinglish': searchRegex },
+        { symptoms: searchRegex },
+        { 'seo.hindiMeta.keywords': searchRegex },
+        { 'faq.question_hi': searchRegex }
+      ];
+
+      // Add text search as fallback
+      try {
+        orConditions.push({ $text: { $search: searchQuery } });
+      } catch (e) {
+        // Text search may fail on special characters
+      }
+
+      const query = {
+        isPublished: true,
+        $or: orConditions
+      };
+
+      [blogs, total] = await Promise.all([
+        Blog.find(query)
+          .populate('author', 'name avatar')
+          .select('title slug excerpt coverImage category medicalCategory readingTime publishedAt intentKeywords symptoms')
+          .sort({ views: -1, publishedAt: -1 })
+          .skip(skip)
+          .limit(parseInt(limit)),
+        Blog.countDocuments(query)
+      ]);
+    } else {
+      // English search - use text index
+      try {
+        [blogs, total] = await Promise.all([
+          Blog.find(
+            { 
+              isPublished: true,
+              $text: { $search: searchQuery } 
+            },
+            { score: { $meta: 'textScore' } }
+          )
+            .populate('author', 'name avatar')
+            .select('title slug excerpt coverImage category medicalCategory readingTime publishedAt')
+            .sort({ score: { $meta: 'textScore' }, publishedAt: -1 })
+            .skip(skip)
+            .limit(parseInt(limit)),
+          Blog.countDocuments({ 
+            isPublished: true,
+            $text: { $search: searchQuery } 
+          })
+        ]);
+      } catch (e) {
+        // Fallback to regex search if text search fails
+        const searchRegex = new RegExp(searchQuery, 'i');
+        const query = {
+          isPublished: true,
+          $or: [
+            { title: searchRegex },
+            { 'intentKeywords.en': searchRegex },
+            { symptoms: searchRegex },
+            { tags: searchRegex }
+          ]
+        };
+
+        [blogs, total] = await Promise.all([
+          Blog.find(query)
+            .populate('author', 'name avatar')
+            .select('title slug excerpt coverImage category medicalCategory readingTime publishedAt')
+            .sort({ views: -1, publishedAt: -1 })
+            .skip(skip)
+            .limit(parseInt(limit)),
+          Blog.countDocuments(query)
+        ]);
+      }
+    }
+
+    // Calculate relevance scores
+    const results = blogs.map(blog => {
+      let relevanceScore = 0.5; // Base score
+      
+      // Boost for exact intent keyword match
+      if (detectedLanguage === 'hi' && blog.intentKeywords?.hi?.length > 0) {
+        const hasMatch = blog.intentKeywords.hi.some(kw => 
+          kw.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          searchQuery.toLowerCase().includes(kw.toLowerCase())
+        );
+        if (hasMatch) relevanceScore += 0.3;
+      }
+      
+      // Boost for symptom match
+      if (blog.symptoms?.some(s => s.toLowerCase().includes(searchQuery.toLowerCase()))) {
+        relevanceScore += 0.2;
+      }
+
+      return {
+        ...blog.toObject(),
+        relevanceScore: Math.min(relevanceScore, 1)
+      };
+    });
+
+    // Sort by relevance
+    results.sort((a, b) => b.relevanceScore - a.relevanceScore);
+
+    res.json({
+      success: true,
+      query: searchQuery,
+      matchedIntentLanguage: detectedLanguage,
+      confidenceScore: confidence,
+      blogs: results,
+      pagination: {
+        page: parseInt(page),
+        limit: parseInt(limit),
+        total,
+        pages: Math.ceil(total / parseInt(limit))
+      },
+      // Hint for frontend to show translation banner
+      showTranslationBanner: detectedLanguage !== 'en' && results.length > 0
+    });
+
+  } catch (error) {
+    console.error('Search error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Search failed',
+      error: error.message
+    });
+  }
 });
 
 /**

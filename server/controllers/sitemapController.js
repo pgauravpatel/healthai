@@ -9,9 +9,9 @@ export const generateSitemap = async (req, res) => {
     const baseUrl = process.env.CLIENT_URL || 'https://healthai.vercel.app';
     const currentDate = new Date().toISOString().split('T')[0];
 
-    // Fetch all published blogs
+    // Fetch all published blogs with multilingual SEO data
     const blogs = await Blog.find({ isPublished: true })
-      .select('slug category updatedAt publishedAt')
+      .select('slug category updatedAt publishedAt intentKeywords')
       .sort({ publishedAt: -1 })
       .lean();
 
@@ -76,19 +76,24 @@ export const generateSitemap = async (req, res) => {
       );
     }
 
-    // Add blog posts
+    // Add blog posts with multilingual hreflang
+    // This enables Hindi searches to rank English blogs (Vinmec-style SEO)
     for (const blog of blogs) {
       const lastmod = blog.updatedAt || blog.publishedAt;
       const lastmodDate = new Date(lastmod).toISOString().split('T')[0];
       
+      // Higher priority for blogs with Hindi intent keywords
+      const hasHindiSEO = blog.intentKeywords?.hi?.length > 0;
+      const priority = hasHindiSEO ? '0.85' : '0.7';
+      
       xml += `  <url>
     <loc>${baseUrl}/blogs/${blog.slug}</loc>
     <lastmod>${lastmodDate}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <priority>${priority}</priority>
     <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/blogs/${blog.slug}" />
-    <xhtml:link rel="alternate" hreflang="hi" href="${baseUrl}/blogs/${blog.slug}?lang=hi" />
-    <xhtml:link rel="alternate" hreflang="es" href="${baseUrl}/blogs/${blog.slug}?lang=es" />
+    <xhtml:link rel="alternate" hreflang="hi" href="${baseUrl}/blogs/${blog.slug}" />
+    <xhtml:link rel="alternate" hreflang="es" href="${baseUrl}/blogs/${blog.slug}" />
     <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/blogs/${blog.slug}" />
   </url>
 `;
@@ -153,6 +158,8 @@ Allow: /cholesterol-report-ai
 Allow: /about
 Allow: /blogs
 Allow: /blogs/*
+Allow: /diseases
+Allow: /diseases/*
 Allow: /report-analyzer
 Allow: /disclaimer
 

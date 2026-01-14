@@ -142,12 +142,6 @@ export default function Login() {
               {t('auth.signUp')}
             </Link>
           </p>
-
-          {/* Demo Account */}
-          <div className="mt-8 p-4 bg-muted/50 rounded-xl text-center">
-            <p className="text-sm text-muted-foreground mb-2">Demo Account:</p>
-            <p className="text-sm font-mono">admin@healthai.com / admin123</p>
-          </div>
         </motion.div>
       </div>
 

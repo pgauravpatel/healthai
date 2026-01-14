@@ -78,7 +78,7 @@ export const changePasswordSchema = z.object({
     .max(100, 'Password cannot exceed 100 characters')
 });
 
-// Blog Schema
+// Blog Schema with Multilingual SEO Support
 export const blogSchema = z.object({
   title: z.string()
     .min(1, 'Title is required')
@@ -90,14 +90,49 @@ export const blogSchema = z.object({
     .max(500, 'Excerpt cannot exceed 500 characters')
     .optional(),
   category: z.enum(['Fitness', 'Mental Health', 'Diet', 'Diseases', 'Wellness', 'Prevention', 'Lifestyle']),
+  medicalCategory: z.enum([
+    'Digestive Health', 'Skin Care', 'Mental Wellness', 'Cardiovascular',
+    'Respiratory', 'Musculoskeletal', 'Nutrition', 'Women Health',
+    'Men Health', 'Child Health', 'General Wellness', 'Infectious Diseases', 'Other'
+  ]).optional(),
   tags: z.array(z.string().trim().toLowerCase()).optional(),
   coverImage: z.string().url('Please enter a valid URL').optional(),
   isPublished: z.boolean().optional(),
+  
+  // Multilingual Intent Keywords (Vinmec-style SEO)
+  intentKeywords: z.object({
+    en: z.array(z.string()).optional(),
+    hi: z.array(z.string()).optional(),
+    hinglish: z.array(z.string()).optional()
+  }).optional(),
+  
+  // Medical symptoms for search matching
+  symptoms: z.array(z.string()).optional(),
+  
+  // SEO metadata with Hindi support
   seo: z.object({
     metaTitle: z.string().max(60, 'Meta title cannot exceed 60 characters').optional(),
     metaDescription: z.string().max(160, 'Meta description cannot exceed 160 characters').optional(),
-    keywords: z.array(z.string()).optional()
-  }).optional()
+    keywords: z.array(z.string()).optional(),
+    // Hindi SEO metadata
+    hindiMeta: z.object({
+      title: z.string().max(70).optional(),
+      description: z.string().max(200).optional(),
+      keywords: z.array(z.string()).optional()
+    }).optional()
+  }).optional(),
+  
+  // Bilingual FAQ for rich results
+  faq: z.array(z.object({
+    question_en: z.string().min(1, 'English question is required'),
+    answer_en: z.string().min(1, 'English answer is required'),
+    question_hi: z.string().optional(),
+    answer_hi: z.string().optional()
+  })).optional(),
+  
+  // Medical trust signals (EEAT)
+  medicalReviewed: z.boolean().optional(),
+  reviewedBy: z.string().optional()
 });
 
 // Blog Update Schema (all fields optional)
