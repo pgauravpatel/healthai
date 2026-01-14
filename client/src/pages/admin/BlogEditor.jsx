@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { 
   ArrowLeft, Save, Eye, Image, Tag, FileText,
   Loader2, Globe, Languages, Plus, Trash2, AlertCircle,
-  CheckCircle, Stethoscope
+  CheckCircle, Stethoscope, Code, FormInput
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
@@ -102,6 +102,11 @@ export default function BlogEditor() {
   const [saving, setSaving] = useState(false)
   const [errors, setErrors] = useState({})
   const [seoScore, setSeoScore] = useState(0)
+  
+  // JSON Import Mode
+  const [editorMode, setEditorMode] = useState('form') // 'form' | 'json'
+  const [jsonInput, setJsonInput] = useState('')
+  const [jsonError, setJsonError] = useState('')
 
   useEffect(() => {
     if (!isAdmin) {
@@ -342,6 +347,89 @@ export default function BlogEditor() {
     }
   }
 
+  // JSON Import Handler
+  const handleJsonSubmit = async () => {
+    setJsonError('')
+    
+    if (!jsonInput.trim()) {
+      setJsonError('Please paste JSON data')
+      return
+    }
+
+    try {
+      // Parse JSON
+      const jsonData = JSON.parse(jsonInput)
+      
+      // Validate required fields
+      if (!jsonData.title) {
+        setJsonError('JSON must include "title" field')
+        return
+      }
+      if (!jsonData.content) {
+        setJsonError('JSON must include "content" field')
+        return
+      }
+      if (!jsonData.category) {
+        setJsonError('JSON must include "category" field')
+        return
+      }
+
+      setSaving(true)
+      
+      // Create blog directly from JSON
+      await blogAPI.createBlog(jsonData)
+      toast.success('Blog created from JSON successfully!')
+      navigate('/admin')
+      
+    } catch (error) {
+      if (error instanceof SyntaxError) {
+        setJsonError('Invalid JSON format. Please check your JSON syntax.')
+      } else {
+        setJsonError(error.message || 'Failed to create blog from JSON')
+        toast.error(error.message || 'Failed to create blog')
+      }
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  // Sample JSON template for reference
+  const sampleJsonTemplate = `{
+  "title": "Your Blog Title Here",
+  "content": "<h2>Introduction</h2><p>Content here...</p>",
+  "category": "Wellness",
+  "medicalCategory": "General Wellness",
+  "tags": ["health", "wellness"],
+  "coverImage": "https://images.unsplash.com/...",
+  "isPublished": true,
+  "intentKeywords": {
+    "en": ["keyword1", "keyword2"],
+    "hi": ["हिंदी कीवर्ड"],
+    "hinglish": ["hindi keyword"]
+  },
+  "symptoms": ["symptom1", "symptom2"],
+  "seo": {
+    "metaTitle": "SEO Title | HealthAI",
+    "metaDescription": "Meta description here...",
+    "keywords": ["seo", "keywords"],
+    "hindiMeta": {
+      "title": "हिंदी शीर्षक",
+      "description": "हिंदी विवरण",
+      "keywords": ["हिंदी"]
+    }
+  },
+  "faq": [
+    {
+      "question_en": "English question?",
+      "answer_en": "English answer",
+      "question_hi": "हिंदी प्रश्न?",
+      "answer_hi": "हिंदी उत्तर"
+    }
+  ],
+  "medicalReviewed": true,
+  "reviewedBy": "HealthAI Medical Team"
+}`
+
   if (loading) {
     return (
       <div className="container mx-auto px-4 py-8 flex items-center justify-center min-h-[50vh]">
@@ -371,31 +459,145 @@ export default function BlogEditor() {
             </h1>
           </div>
           <div className="flex items-center gap-3">
-            {/* SEO Score Badge */}
-            <div className={`px-3 py-1.5 rounded-full text-sm font-medium ${
-              seoScore.score >= 80 ? 'bg-green-100 text-green-800' :
-              seoScore.score >= 50 ? 'bg-yellow-100 text-yellow-800' :
-              'bg-red-100 text-red-800'
-            }`}>
-              SEO: {seoScore.score}/100
-            </div>
-            <label className="flex items-center gap-2 text-sm">
-              <input
-                type="checkbox"
-                name="isPublished"
-                checked={formData.isPublished}
-                onChange={handleChange}
-                className="rounded"
-              />
-              Publish
-            </label>
-            <Button onClick={handleSubmit} loading={saving} variant="gradient">
+            {/* SEO Score Badge - only show in form mode */}
+            {editorMode === 'form' && (
+              <div className={`px-3 py-1.5 rounded-full text-sm font-medium ${
+                seoScore.score >= 80 ? 'bg-green-100 text-green-800' :
+                seoScore.score >= 50 ? 'bg-yellow-100 text-yellow-800' :
+                'bg-red-100 text-red-800'
+              }`}>
+                SEO: {seoScore.score}/100
+              </div>
+            )}
+            {editorMode === 'form' && (
+              <label className="flex items-center gap-2 text-sm">
+                <input
+                  type="checkbox"
+                  name="isPublished"
+                  checked={formData.isPublished}
+                  onChange={handleChange}
+                  className="rounded"
+                />
+                Publish
+              </label>
+            )}
+            <Button 
+              onClick={editorMode === 'form' ? handleSubmit : handleJsonSubmit} 
+              loading={saving} 
+              variant="gradient"
+            >
               <Save className="w-4 h-4" />
               Save
             </Button>
           </div>
         </div>
 
+        {/* Editor Mode Toggle - Only show for new articles */}
+        {!isEditing && (
+          <div className="mb-6 flex items-center gap-2 p-1 bg-muted rounded-lg w-fit">
+            <button
+              type="button"
+              onClick={() => setEditorMode('form')}
+              className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${
+                editorMode === 'form' 
+                  ? 'bg-background shadow text-foreground' 
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <FormInput className="w-4 h-4" />
+              Form Editor
+            </button>
+            <button
+              type="button"
+              onClick={() => setEditorMode('json')}
+              className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${
+                editorMode === 'json' 
+                  ? 'bg-background shadow text-foreground' 
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <Code className="w-4 h-4" />
+              JSON Import
+            </button>
+          </div>
+        )}
+
+        {/* JSON Import Mode */}
+        {editorMode === 'json' && !isEditing && (
+          <div className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Code className="w-5 h-5" />
+                  Import from JSON
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-sm text-muted-foreground">
+                  Paste your blog document JSON below. The JSON will be sent directly to create a new blog post.
+                </p>
+                
+                {jsonError && (
+                  <div className="p-3 bg-destructive/10 border border-destructive/20 rounded-lg text-destructive text-sm flex items-start gap-2">
+                    <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+                    {jsonError}
+                  </div>
+                )}
+                
+                <textarea
+                  value={jsonInput}
+                  onChange={(e) => {
+                    setJsonInput(e.target.value)
+                    setJsonError('')
+                  }}
+                  placeholder="Paste your JSON object here..."
+                  className="w-full p-4 rounded-xl border bg-background resize-none h-[500px] font-mono text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                  spellCheck={false}
+                />
+                
+                <div className="flex items-center justify-between">
+                  <Button 
+                    type="button" 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => setJsonInput(sampleJsonTemplate)}
+                  >
+                    Load Sample Template
+                  </Button>
+                  <Button 
+                    type="button"
+                    onClick={handleJsonSubmit} 
+                    loading={saving}
+                    variant="gradient"
+                  >
+                    <Save className="w-4 h-4" />
+                    Create from JSON
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* JSON Format Reference */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-sm">Required Fields</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• <code className="bg-muted px-1 rounded">title</code> - Blog title (string)</li>
+                  <li>• <code className="bg-muted px-1 rounded">content</code> - HTML content (string)</li>
+                  <li>• <code className="bg-muted px-1 rounded">category</code> - One of: Fitness, Mental Health, Diet, Diseases, Wellness, Prevention, Lifestyle</li>
+                </ul>
+                <p className="text-xs text-muted-foreground mt-3">
+                  All other fields are optional. Click "Load Sample Template" to see the full structure.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        )}
+
+        {/* Form Editor Mode */}
+        {editorMode === 'form' && (
         <form onSubmit={handleSubmit} className="space-y-8">
           {/* Main Content Card */}
           <Card>
@@ -860,6 +1062,7 @@ export default function BlogEditor() {
             </Button>
           </div>
         </form>
+        )}
       </motion.div>
     </div>
   )
