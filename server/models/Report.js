@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 /**
- * Report Schema
+ * Report Schema Defination
  * Stores user health report analyses
  */
 const reportSchema = new mongoose.Schema({
