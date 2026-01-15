@@ -100,6 +100,6 @@ export async function copyToClipboard(text) {
  */
 export const MEDICAL_DISCLAIMER = {
   short: "This is general health information only. Always consult a healthcare professional for medical advice.",
-  full: "⚕️ Medical Disclaimer: The information provided by HealthAI is for general educational and informational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition."
+  full: "⚕️ Medical Disclaimer: The information provided by Health Scan is for general educational and informational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition."
 }
 

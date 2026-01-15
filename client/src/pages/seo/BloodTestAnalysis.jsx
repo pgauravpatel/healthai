@@ -104,7 +104,7 @@ export default function BloodTestAnalysis() {
                 <p>
                   Blood tests are one of the most important diagnostic tools in modern medicine. 
                   They provide valuable insights into your overall health, helping detect diseases, 
-                  assess organ function, and monitor chronic conditions. With HealthAI's blood test 
+                  assess organ function, and monitor chronic conditions. With Health Scan's blood test 
                   analyzer, you can now understand your results without medical jargon.
                 </p>
 

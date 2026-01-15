@@ -31,10 +31,10 @@ export default function Seo({
   const { t } = useTranslation()
   
   // Default values from translations
-  const defaultTitle = t('seo.defaultTitle', 'HealthAI - AI Health Report Analyzer')
-  const defaultDescription = t('seo.defaultDescription', 'Analyze your health reports with AI. Get easy-to-understand explanations of blood tests, lab reports, and medical documents.')
+  const defaultTitle = t('seo.defaultTitle', 'Health Scan | Understand Your Health Reports')
+  const defaultDescription = t('seo.defaultDescription', 'Understand your health reports easily. Get simple explanations of blood tests, lab reports, and medical documents.')
   
-  const fullTitle = title ? `${title} | HealthAI` : defaultTitle
+  const fullTitle = title ? `${title} | Health Scan` : defaultTitle
   const metaDescription = description || defaultDescription
   const siteUrl = 'https://healthai.vercel.app' // Update with your domain
   const fullCanonicalUrl = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl
@@ -77,7 +77,7 @@ export default function Seo({
       <meta property="og:image" content={fullOgImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:site_name" content="HealthAI" />
+      <meta property="og:site_name" content="Health Scan" />
       <meta property="og:locale" content={currentLanguage === 'hi' ? 'hi_IN' : currentLanguage === 'es' ? 'es_ES' : 'en_US'} />
       
       {/* Twitter Card Tags */}
@@ -112,14 +112,11 @@ export default function Seo({
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "HealthAI",
+  "name": "Health Scan",
   "url": "https://healthai.vercel.app",
   "logo": "https://healthai.vercel.app/logo.png",
-  "description": "AI-powered health report analyzer providing easy-to-understand explanations of medical lab reports.",
-  "sameAs": [
-    "https://twitter.com/healthai",
-    "https://linkedin.com/company/healthai"
-  ],
+  "description": "Health report analyzer providing easy-to-understand explanations of medical lab reports.",
+  "sameAs": [],
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "customer support",
@@ -133,7 +130,7 @@ export const organizationSchema = {
 export const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "HealthAI Report Analyzer",
+  "name": "Health Scan Report Analyzer",
   "applicationCategory": "HealthApplication",
   "operatingSystem": "Web",
   "offers": {
@@ -141,12 +138,12 @@ export const softwareSchema = {
     "price": "0",
     "priceCurrency": "USD"
   },
-  "description": "AI-powered health report analyzer that helps you understand your medical lab reports in simple language.",
+  "description": "Health report analyzer that helps you understand your medical lab reports in simple language.",
   "featureList": [
     "Blood test analysis",
     "PDF and image report upload",
     "Multi-language support",
-    "AI-powered explanations",
+    "Expert explanations",
     "Lifestyle recommendations"
   ]
 }
@@ -175,7 +172,7 @@ export const getMedicalWebPageSchema = (title, description, url) => ({
   "lastReviewed": new Date().toISOString().split('T')[0],
   "reviewedBy": {
     "@type": "Organization",
-    "name": "HealthAI Medical Content Team"
+    "name": "Health Scan Medical Content Team"
   }
 })
 
@@ -212,7 +209,7 @@ export const getArticleSchema = (article) => ({
   },
   "publisher": {
     "@type": "Organization",
-    "name": "HealthAI",
+    "name": "Health Scan",
     "logo": {
       "@type": "ImageObject",
       "url": "https://healthai.vercel.app/logo.png"

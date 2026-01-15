@@ -11,8 +11,8 @@ import { formatDate } from '@/lib/utils'
 export default function AuthorBio({ author, publishedAt, updatedAt, readingTime }) {
   const { t } = useTranslation()
   
-  const authorName = author?.name || 'HealthAI Team'
-  const authorBio = author?.bio || 'Health content writer and researcher at HealthAI. Our team is dedicated to providing accurate, evidence-based health information to help you make informed decisions about your wellbeing.'
+  const authorName = author?.name || 'Health Scan Team'
+  const authorBio = author?.bio || 'Health content writer and researcher at Health Scan. Our team is dedicated to providing accurate, evidence-based health information to help you make informed decisions about your wellbeing.'
   
   return (
     <div className="mt-12 space-y-6">

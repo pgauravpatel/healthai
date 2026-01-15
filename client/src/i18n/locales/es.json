@@ -17,6 +17,7 @@
     "success": "Éxito",
     "warning": "Advertencia",
     "info": "Información",
+    "important": "Importante",
     "yes": "Sí",
     "no": "No",
     "ok": "OK",
@@ -34,7 +35,7 @@
   "navbar": {
     "home": "Inicio",
     "blog": "Blog de Salud",
-    "aiAssistant": "Asistente IA",
+    "assistant": "Asistente de Salud",
     "reportAnalyzer": "Analizador de Informes",
     "admin": "Admin",
     "profile": "Perfil",
@@ -74,24 +75,24 @@
     "createAccountSubtitle": "Únete a miles de usuarios mejorando su salud"
   },
   "home": {
-    "heroTitle": "Tu Compañero de Salud Impulsado por IA",
-    "heroSubtitle": "Obtén información de salud instantánea, analiza informes médicos y accede a información de salud experta, todo impulsado por tecnología de IA avanzada.",
+    "heroTitle": "Tu Compañero de Salud de Confianza",
+    "heroSubtitle": "Obtén información de salud instantánea, analiza informes médicos y accede a información de salud experta - de confianza para miles.",
     "getStarted": "Comenzar Gratis",
     "exploreBlog": "Explorar Blog de Salud",
     "features": "Características",
     "featuresSubtitle": "Todo lo que necesitas para una mejor comprensión de la salud",
-    "feature1Title": "Asistente de Salud IA",
-    "feature1Desc": "Chatea con nuestra IA para entender síntomas, obtener consejos de estilo de vida y saber cuándo buscar ayuda médica.",
+    "feature1Title": "Asistente de Salud",
+    "feature1Desc": "Chatea con nuestro asistente para entender síntomas, obtener consejos de estilo de vida y saber cuándo buscar ayuda médica.",
     "feature2Title": "Analizador de Informes",
     "feature2Desc": "Sube tus informes de laboratorio y obtén explicaciones fáciles de entender de tus resultados.",
     "feature3Title": "Blog de Salud",
     "feature3Desc": "Mantente informado con artículos expertos sobre fitness, nutrición, salud mental y prevención de enfermedades.",
     "ctaTitle": "Comienza Tu Viaje de Salud Hoy",
-    "ctaSubtitle": "Únete a miles de usuarios que confían en HealthAI para sus necesidades de información de salud.",
+    "ctaSubtitle": "Únete a miles de usuarios que confían en Health Scan para sus necesidades de información de salud.",
     "ctaButton": "Crear Cuenta Gratis"
   },
   "chat": {
-    "title": "Asistente de Salud IA",
+    "title": "Asistente de Salud",
     "subtitle": "Obtén información de salud, consejos de estilo de vida y orientación sobre cuándo ver a un médico",
     "placeholder": "Escribe tu pregunta de salud...",
     "send": "Enviar",
@@ -101,9 +102,9 @@
     "deleteChat": "Eliminar Chat",
     "clearHistory": "Limpiar Historial",
     "thinking": "Pensando...",
-    "welcomeMessage": "¡Hola! Soy tu asistente de salud IA. Puedo ayudarte a entender síntomas, darte consejos de estilo de vida y orientarte sobre cuándo buscar atención médica. ¿Cómo puedo ayudarte hoy?",
+    "welcomeMessage": "¡Hola! Soy tu asistente de salud. Puedo ayudarte a entender síntomas, darte consejos de estilo de vida y orientarte sobre cuándo buscar atención médica. ¿Cómo puedo ayudarte hoy?",
     "errorMessage": "Lo siento, encontré un error. Por favor intenta de nuevo.",
-    "disclaimer": "Este asistente IA proporciona solo información general de salud. No es un sustituto del consejo médico profesional, diagnóstico o tratamiento."
+    "disclaimer": "Este asistente proporciona solo información general de salud. No es un sustituto del consejo médico profesional, diagnóstico o tratamiento."
   },
   "report": {
     "title": "Analizador de Informes de Salud",
@@ -121,7 +122,7 @@
     "lifestyle": "Sugerencias de Estilo de Vida y Dieta",
     "doctorAdvice": "Cuándo Consultar a un Médico",
     "disclaimer": "Aviso Médico",
-    "disclaimerText": "Este análisis es solo para fines educativos e informativos. NO es un diagnóstico médico y NO debe usarse como sustituto del consejo médico profesional, diagnóstico o tratamiento. Los valores de laboratorio pueden verse influenciados por muchos factores, y solo un proveedor de atención médica calificado puede interpretar correctamente estos resultados en el contexto de su historial médico completo. Siempre busque el consejo de su médico u otro proveedor de salud calificado con cualquier pregunta que pueda tener sobre su salud. Si tiene preocupaciones sobre cualquier valor en este informe, consulte a un profesional de la salud de inmediato.",
+    "disclaimerText": "Este análisis es solo para fines educativos e informativos. NO es un diagnóstico médico y NO debe usarse como sustituto del consejo médico profesional, diagnóstico o tratamiento.",
     "analyzeAnother": "Analizar Otro Informe",
     "viewHistory": "Ver Historial",
     "history": "Historial de Informes",
@@ -242,8 +243,8 @@
     "insufficientCredits": "Créditos insuficientes. Por favor actualiza tu plan."
   },
   "disclaimers": {
-    "medical": "⚕️ Aviso Médico: La información proporcionada es solo para fines educativos y no pretende ser un sustituto del consejo médico profesional, diagnóstico o tratamiento. Siempre busque el consejo de su médico u otro proveedor de salud calificado con cualquier pregunta que pueda tener sobre una condición médica.",
-    "ai": "Este contenido generado por IA es solo para fines informativos y no debe reemplazar la consulta médica profesional.",
+    "medical": "Aviso Médico: La información proporcionada es solo para fines educativos y no pretende ser un sustituto del consejo médico profesional, diagnóstico o tratamiento. Siempre busque el consejo de su médico u otro proveedor de salud calificado con cualquier pregunta que pueda tener sobre una condición médica.",
+    "assistant": "Este contenido es solo para fines informativos y no debe reemplazar la consulta médica profesional.",
     "emergency": "🚨 En caso de emergencia médica, por favor llame a sus servicios de emergencia locales inmediatamente."
   },
   "languages": {
@@ -266,36 +267,35 @@
     "whenToSeeDoctor": "Cuándo Consultar a un Médico",
     "faqs": "Preguntas Frecuentes",
     "relatedConditions": "Condiciones Relacionadas",
-    "askAI": "Preguntar al Asistente IA",
+    "askAssistant": "Preguntar al Asistente",
     "askAbout": "Obtén respuestas sobre",
-    "aiDisclaimer": "La IA proporciona orientación general solamente, no consejo médico",
+    "assistantDisclaimer": "Proporciona orientación general solamente, no consejo médico",
     "exploreMore": "Explorar Más",
     "browseOther": "Ver Otras Condiciones de Salud",
     "needHelp": "¿Necesitas Más Ayuda?",
-    "helpDesc": "Nuestras herramientas impulsadas por IA pueden ayudarte a entender mejor tu salud"
+    "helpDesc": "Nuestras herramientas pueden ayudarte a entender mejor tu salud"
   },
   "seo": {
-    "defaultTitle": "HealthAI - Analizador de Informes de Salud con IA | Entiende tus Análisis",
-    "defaultDescription": "Analiza tus informes de salud con IA. Obtén explicaciones fáciles de entender de análisis de sangre, informes de laboratorio y documentos médicos.",
-    "homeTitle": "HealthAI - Tu Compañero de Salud con IA",
-    "homeDescription": "Obtén información de salud instantánea, analiza informes médicos y accede a información de salud experta con tecnología de IA. Análisis gratuito de pruebas de sangre.",
-    "homeKeywords": "salud IA, analizador de análisis de sangre, análisis de informes de laboratorio, informe médico IA, asistente de salud",
-    "reportAnalyzerTitle": "Analizador de Informes de Salud con IA - Entiende tus Pruebas de Laboratorio",
-    "reportAnalyzerDescription": "Sube tu análisis de sangre o informe de laboratorio y obtén análisis instantáneo con IA. Entiende tus resultados de salud con explicaciones simples.",
-    "reportAnalyzerKeywords": "analizador de análisis de sangre, análisis de informes de laboratorio, informe de salud IA, interpretación de pruebas médicas",
-    "bloodTestTitle": "Análisis Gratuito de Pruebas de Sangre - Intérprete de CBC y Panel Lipídico con IA",
-    "bloodTestDescription": "Obtén tus resultados de análisis de sangre analizados por IA. Entiende CBC, paneles lipídicos, pruebas de función hepática y más.",
+    "defaultTitle": "Health Scan | Entiende tus Informes de Salud e Información Médica",
+    "defaultDescription": "Analiza tus informes de salud fácilmente. Obtén explicaciones simples de análisis de sangre, informes de laboratorio y documentos médicos.",
+    "homeTitle": "Health Scan | Tu Compañero de Salud de Confianza",
+    "homeDescription": "Obtén información de salud instantánea, analiza informes médicos y accede a información de salud experta. Análisis gratuito de pruebas de sangre.",
+    "homeKeywords": "analizador de salud, analizador de análisis de sangre, análisis de informes de laboratorio, informe médico, asistente de salud",
+    "reportAnalyzerTitle": "Analizador de Informes de Salud - Entiende tus Pruebas de Laboratorio",
+    "reportAnalyzerDescription": "Sube tu análisis de sangre o informe de laboratorio y obtén análisis instantáneo. Entiende tus resultados de salud con explicaciones simples.",
+    "reportAnalyzerKeywords": "analizador de análisis de sangre, análisis de informes de laboratorio, analizador de informe de salud, interpretación de pruebas médicas",
+    "bloodTestTitle": "Análisis Gratuito de Pruebas de Sangre - Intérprete de CBC y Panel Lipídico",
+    "bloodTestDescription": "Obtén tus resultados de análisis de sangre analizados. Entiende CBC, paneles lipídicos, pruebas de función hepática y más.",
     "bloodTestKeywords": "análisis de prueba de sangre, analizador CBC, interpretación de panel lipídico, niveles de hemoglobina, análisis de colesterol",
-    "cholesterolTitle": "Analizador de Informe de Colesterol con IA - Entiende tu Panel Lipídico",
-    "cholesterolDescription": "Analiza tus resultados de colesterol y panel lipídico con IA. Obtén explicaciones fáciles de LDL, HDL, triglicéridos y recomendaciones de salud cardíaca.",
-    "cholesterolKeywords": "analizador de colesterol, panel lipídico IA, análisis LDL HDL, informe de salud cardíaca",
+    "cholesterolTitle": "Analizador de Informe de Colesterol - Entiende tu Panel Lipídico",
+    "cholesterolDescription": "Analiza tus resultados de colesterol y panel lipídico. Obtén explicaciones fáciles de LDL, HDL, triglicéridos y recomendaciones de salud cardíaca.",
+    "cholesterolKeywords": "analizador de colesterol, panel lipídico, análisis LDL HDL, informe de salud cardíaca",
     "blogTitle": "Blog de Salud - Artículos de Expertos sobre Bienestar e Información Médica",
     "blogDescription": "Lee artículos de salud de expertos sobre fitness, nutrición, salud mental y prevención de enfermedades.",
     "blogKeywords": "blog de salud, artículos médicos, consejos de bienestar, guía de nutrición, salud mental",
-    "loginTitle": "Iniciar Sesión en HealthAI - Accede a tu Panel de Salud",
-    "loginDescription": "Inicia sesión en tu cuenta de HealthAI para acceder a tus informes de salud, historial de chat e información de salud personalizada.",
-    "registerTitle": "Crear Cuenta de HealthAI - Comienza tu Viaje de Salud",
-    "registerDescription": "Únete a HealthAI gratis. Obtén análisis de informes de salud con IA y recomendaciones personalizadas."
+    "loginTitle": "Iniciar Sesión en Health Scan - Accede a tu Panel de Salud",
+    "loginDescription": "Inicia sesión en tu cuenta de Health Scan para acceder a tus informes de salud, historial de chat e información de salud personalizada.",
+    "registerTitle": "Crear Cuenta de Health Scan - Comienza tu Viaje de Salud",
+    "registerDescription": "Únete a Health Scan gratis. Obtén análisis de informes de salud y recomendaciones personalizadas."
   }
 }
-

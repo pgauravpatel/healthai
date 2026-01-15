@@ -225,7 +225,7 @@ export default function Chat() {
               <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-health-500 to-mint-500 flex items-center justify-center mb-6">
                 <span className="text-4xl">🏥</span>
               </div>
-              <h2 className="text-2xl font-bold mb-2">Hello! I'm HealthAI</h2>
+              <h2 className="text-2xl font-bold mb-2">Hello! I'm your Health Assistant</h2>
               <p className="text-muted-foreground max-w-md mb-8">
                 I'm here to help with general health questions and lifestyle guidance. 
                 How can I assist you today?
@@ -263,7 +263,7 @@ export default function Chat() {
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-health-500 to-mint-500 flex items-center justify-center">
                 <Loader2 className="w-5 h-5 text-white animate-spin" />
               </div>
-              <span className="text-sm">HealthAI is thinking...</span>
+              <span className="text-sm">Health Scan is thinking...</span>
             </div>
           )}
 

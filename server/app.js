@@ -63,13 +63,13 @@ app.use('/api', apiLimiter);
 app.get('/api/health', (req, res) => {
   res.json({
     success: true,
-    message: 'HealthAI API is running',
+    message: 'Health Scan API is running',
     timestamp: new Date().toISOString(),
     environment: process.env.NODE_ENV
   });
 });
 app.get('/', (req, res) => {
-  res.status(200).send('🏥 HealthAI API is running');
+  res.status(200).send('🏥 Health Scan API is running');
 });
 // API Routes
 app.use('/api/auth', authRoutes);

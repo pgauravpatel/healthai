@@ -6,7 +6,7 @@ import Blog from '../models/Blog.js';
 dotenv.config();
 
 /**
- * Seed Data for HealthAI Platform
+ * Seed Data for Health Scan Platform
  * 
  * This seed data demonstrates the Vinmec-style multilingual SEO structure:
  * - Hindi intent keywords for ranking English content in Hindi searches
@@ -21,7 +21,7 @@ const users = [
     email: 'admin@healthai.com',
     password: 'admin123',
     role: 'admin',
-    bio: 'HealthAI Platform Administrator'
+    bio: 'Health Scan Platform Administrator'
   },
   {
     name: 'Dr. Sarah Johnson',
@@ -142,18 +142,18 @@ const blogs = [
     
     // SEO metadata
     seo: {
-      metaTitle: 'Burning Sensation After Stool: Causes & Relief | HealthAI',
+      metaTitle: 'Burning Sensation After Stool: Causes & Relief | Health Scan',
       metaDescription: 'Learn about burning sensation in anus after passing stool. Causes include hemorrhoids, fissures, spicy food. Get home remedies and when to see a doctor.',
       keywords: ['burning after stool', 'anal burning', 'hemorrhoids', 'piles', 'rectal pain', 'home remedies'],
       hindiMeta: {
-        title: 'गुदा में जलन के कारण और उपचार | HealthAI',
+        title: 'गुदा में जलन के कारण और उपचार | Health Scan',
         description: 'लैट्रिन के बाद गुदा में जलन क्यों होती है? बवासीर, पाइल्स के लक्षण और घरेलू उपचार जानें। डॉक्टर को कब दिखाएं।',
         keywords: ['गुदा में जलन', 'लैट्रिन के बाद जलन', 'बवासीर के लक्षण', 'पाइल्स का इलाज', 'गुदा दर्द']
       }
     },
     
     medicalReviewed: true,
-    reviewedBy: 'HealthAI Medical Content Team',
+    reviewedBy: 'Health Scan Medical Content Team',
     isPublished: true
   },
 
@@ -267,18 +267,18 @@ const blogs = [
     ],
     
     seo: {
-      metaTitle: 'Stomach Gas Problem: Causes & Natural Remedies | HealthAI',
+      metaTitle: 'Stomach Gas Problem: Causes & Natural Remedies | Health Scan',
       metaDescription: 'Learn about stomach gas causes, symptoms and natural remedies. Try ginger, fennel seeds, ajwain for quick relief. When to see a doctor for bloating.',
       keywords: ['stomach gas', 'bloating', 'gas problem', 'flatulence', 'home remedies', 'digestive health'],
       hindiMeta: {
-        title: 'पेट में गैस की समस्या: कारण और घरेलू उपाय | HealthAI',
+        title: 'पेट में गैस की समस्या: कारण और घरेलू उपाय | Health Scan',
         description: 'पेट में गैस क्यों बनती है? गैस की समस्या के लक्षण और घरेलू इलाज जानें। अदरक, सौंफ, अजवाइन से तुरंत राहत पाएं।',
         keywords: ['पेट में गैस', 'गैस की समस्या', 'पेट फूलना', 'गैस का इलाज', 'पाचन समस्या']
       }
     },
     
     medicalReviewed: true,
-    reviewedBy: 'HealthAI Medical Content Team',
+    reviewedBy: 'Health Scan Medical Content Team',
     isPublished: true
   },
 
@@ -392,18 +392,18 @@ const blogs = [
     ],
     
     seo: {
-      metaTitle: 'Headache Types: Causes & Natural Relief | HealthAI',
+      metaTitle: 'Headache Types: Causes & Natural Relief | Health Scan',
       metaDescription: 'Learn about different headache types - tension, migraine, sinus. Natural remedies for relief. Know when headache is serious and needs medical attention.',
       keywords: ['headache types', 'migraine', 'tension headache', 'headache relief', 'natural remedies'],
       hindiMeta: {
-        title: 'सिर दर्द के प्रकार: कारण और घरेलू उपचार | HealthAI',
+        title: 'सिर दर्द के प्रकार: कारण और घरेलू उपचार | Health Scan',
         description: 'सिर दर्द के विभिन्न प्रकार - तनाव, माइग्रेन, साइनस। घरेलू उपचार से राहत पाएं। जानें कब सिर दर्द गंभीर है।',
         keywords: ['सिर दर्द', 'माइग्रेन', 'सिर दर्द का इलाज', 'आधे सिर का दर्द']
       }
     },
     
     medicalReviewed: true,
-    reviewedBy: 'HealthAI Medical Content Team',
+    reviewedBy: 'Health Scan Medical Content Team',
     isPublished: true
   },
 
@@ -481,11 +481,11 @@ const blogs = [
     ],
     
     seo: {
-      metaTitle: '10 Home Exercises Without Equipment | HealthAI',
+      metaTitle: '10 Home Exercises Without Equipment | Health Scan',
       metaDescription: 'Discover 10 effective exercises you can do at home without any equipment. Stay fit and healthy with these simple workout routines.',
       keywords: ['home exercise', 'no equipment workout', 'fitness at home', 'body weight exercises'],
       hindiMeta: {
-        title: '10 घरेलू व्यायाम बिना उपकरण के | HealthAI',
+        title: '10 घरेलू व्यायाम बिना उपकरण के | Health Scan',
         description: 'घर पर बिना किसी उपकरण के 10 प्रभावी व्यायाम। इन सरल वर्कआउट रूटीन से फिट और स्वस्थ रहें।',
         keywords: ['घर पर व्यायाम', 'बिना उपकरण व्यायाम', 'वजन कम करना']
       }
@@ -578,11 +578,11 @@ const blogs = [
     ],
     
     seo: {
-      metaTitle: 'Understanding Anxiety: Signs & Coping Strategies | HealthAI',
+      metaTitle: 'Understanding Anxiety: Signs & Coping Strategies | Health Scan',
       metaDescription: 'Learn about anxiety symptoms, causes, and effective coping strategies. Expert tips for managing anxiety and when to seek professional help.',
       keywords: ['anxiety', 'mental health', 'coping strategies', 'stress management'],
       hindiMeta: {
-        title: 'चिंता को समझें: लक्षण और उपचार | HealthAI',
+        title: 'चिंता को समझें: लक्षण और उपचार | Health Scan',
         description: 'चिंता के लक्षण, कारण और प्रभावी सामना करने की रणनीतियां जानें। तनाव प्रबंधन के विशेषज्ञ सुझाव।',
         keywords: ['चिंता', 'तनाव', 'मानसिक स्वास्थ्य', 'घबराहट']
       }
@@ -675,11 +675,11 @@ const blogs = [
     ],
     
     seo: {
-      metaTitle: '15 Tips for Better Sleep | Sleep Hygiene Guide | HealthAI',
+      metaTitle: '15 Tips for Better Sleep | Sleep Hygiene Guide | Health Scan',
       metaDescription: 'Improve your sleep with these 15 expert tips. Learn about sleep hygiene, creating the perfect sleep environment, and healthy bedtime habits.',
       keywords: ['sleep tips', 'better sleep', 'sleep hygiene', 'insomnia'],
       hindiMeta: {
-        title: 'अच्छी नींद के 15 उपाय | HealthAI',
+        title: 'अच्छी नींद के 15 उपाय | Health Scan',
         description: 'इन 15 विशेषज्ञ सुझावों से अपनी नींद में सुधार करें। स्वस्थ नींद के वातावरण और आदतों के बारे में जानें।',
         keywords: ['नींद के उपाय', 'अनिद्रा', 'अच्छी नींद', 'नींद की समस्या']
       }

@@ -55,7 +55,7 @@ export default function Home() {
   const stats = [
     { value: '10K+', label: t('blog.title') },
     { value: '50K+', label: t('admin.totalUsers') },
-    { value: '24/7', label: t('navbar.aiAssistant') },
+    { value: '24/7', label: t('navbar.assistant') },
     { value: '100%', label: 'Free' }
   ]
 
@@ -86,7 +86,7 @@ export default function Home() {
             >
               <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-6">
                 <Sparkles className="w-4 h-4" />
-                AI-Powered Health Platform
+                Your Trusted Health Platform
               </span>
               
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
@@ -116,7 +116,7 @@ export default function Home() {
               <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
                 <span className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-green-500" />
-                  {t('disclaimers.ai').substring(0, 50)}...
+                  {t('disclaimers.assistant').substring(0, 60)}...
                 </span>
               </div>
             </motion.div>

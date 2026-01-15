@@ -14,23 +14,23 @@ export default function AIHealthReportAnalyzer() {
   const faqs = [
     {
       question: "What types of health reports can I analyze?",
-      answer: "HealthAI can analyze various types of lab reports including Complete Blood Count (CBC), Lipid Panel, Liver Function Tests (LFT), Kidney Function Tests, Thyroid Profile, Blood Sugar tests, and more. Simply upload your report in PDF or image format."
+      answer: "Health Scan can analyze various types of lab reports including Complete Blood Count (CBC), Lipid Panel, Liver Function Tests (LFT), Kidney Function Tests, Thyroid Profile, Blood Sugar tests, and more. Simply upload your report in PDF or image format."
     },
     {
       question: "Is my health data secure?",
       answer: "Yes, your privacy is our priority. All uploaded reports are encrypted, processed securely, and never shared with third parties. We comply with healthcare data protection standards."
     },
     {
-      question: "How accurate is the AI analysis?",
-      answer: "Our AI provides educational explanations based on standard medical reference ranges. However, it's important to note that AI analysis is for informational purposes only and should not replace professional medical advice."
+      question: "How accurate is the analysis?",
+      answer: "Our analysis provides educational explanations based on standard medical reference ranges. However, it's important to note that analysis is for informational purposes only and should not replace professional medical advice."
     },
     {
       question: "Can I analyze reports in different languages?",
-      answer: "Yes! HealthAI supports multiple languages including English, Hindi, and Spanish. The AI will provide analysis in your selected language for better understanding."
+      answer: "Yes! Health Scan supports multiple languages including English, Hindi, and Spanish. Analysis will be provided in your selected language for better understanding."
     },
     {
       question: "Is the service free to use?",
-      answer: "Yes, basic health report analysis is free. You can upload your reports and get AI-powered explanations without any charge."
+      answer: "Yes, basic health report analysis is free. You can upload your reports and get explanations without any charge."
     }
   ]
 
@@ -38,7 +38,7 @@ export default function AIHealthReportAnalyzer() {
     ...getMedicalWebPageSchema(
       t('seo.reportAnalyzerTitle'),
       t('seo.reportAnalyzerDescription'),
-      'https://healthai.vercel.app/ai-health-report-analyzer'
+      'https://healthai.vercel.app/report-analyzer-info'
     ),
     ...getFAQSchema(faqs)
   }
@@ -49,32 +49,32 @@ export default function AIHealthReportAnalyzer() {
         title={t('seo.reportAnalyzerTitle')}
         description={t('seo.reportAnalyzerDescription')}
         keywords={t('seo.reportAnalyzerKeywords')}
-        canonicalUrl="/ai-health-report-analyzer"
+        canonicalUrl="/report-analyzer-info"
         schema={[schema, softwareSchema]}
       />
 
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="relative py-20 bg-gradient-to-br from-health-500/10 via-background to-mint-500/10">
+        <section className="relative py-20 bg-gradient-to-br from-red-500/10 via-background to-red-500/5">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                <span className="inline-flex items-center gap-2 px-4 py-2 bg-health-500/10 rounded-full text-health-600 dark:text-health-400 text-sm font-medium mb-6">
+                <span className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 rounded-full text-red-600 dark:text-red-400 text-sm font-medium mb-6">
                   <Sparkles className="w-4 h-4" />
-                  AI-Powered Medical Report Analysis
+                  Smart Medical Report Analysis
                 </span>
                 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                  AI Health Report Analyzer
-                  <span className="block gradient-text mt-2">Understand Your Lab Tests</span>
+                  Health Report Analyzer
+                  <span className="block text-red-600 mt-2">Understand Your Lab Tests</span>
                 </h1>
                 
                 <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
                   Upload your blood test, CBC, lipid panel, or any medical lab report. 
-                  Our AI provides instant, easy-to-understand explanations in your preferred language.
+                  Get instant, easy-to-understand explanations in your preferred language.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -101,7 +101,7 @@ export default function AIHealthReportAnalyzer() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                How AI Health Report Analysis Works
+                How Health Report Analysis Works
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Get comprehensive insights from your medical reports in three simple steps
@@ -119,8 +119,8 @@ export default function AIHealthReportAnalyzer() {
                 {
                   step: '02',
                   icon: Brain,
-                  title: 'AI Analysis',
-                  description: 'Our advanced AI powered by GPT-4 analyzes your report, identifying key values and comparing them with standard reference ranges.'
+                  title: 'Smart Analysis',
+                  description: 'Our advanced system analyzes your report, identifying key values and comparing them with standard reference ranges.'
                 },
                 {
                   step: '03',
@@ -138,9 +138,9 @@ export default function AIHealthReportAnalyzer() {
                   className="relative"
                 >
                   <div className="health-card p-8 h-full">
-                    <div className="text-5xl font-bold text-health-500/20 mb-4">{item.step}</div>
-                    <div className="w-14 h-14 rounded-xl bg-health-500/10 flex items-center justify-center mb-4">
-                      <item.icon className="w-7 h-7 text-health-500" />
+                    <div className="text-5xl font-bold text-red-500/20 mb-4">{item.step}</div>
+                    <div className="w-14 h-14 rounded-xl bg-red-500/10 flex items-center justify-center mb-4">
+                      <item.icon className="w-7 h-7 text-red-500" />
                     </div>
                     <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
                     <p className="text-muted-foreground">{item.description}</p>
@@ -166,7 +166,7 @@ export default function AIHealthReportAnalyzer() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { icon: FileSearch, title: 'OCR Technology', desc: 'Automatically extracts text from PDFs and images' },
-                { icon: Brain, title: 'AI-Powered Analysis', desc: 'Advanced GPT-4 technology for accurate insights' },
+                { icon: Brain, title: 'Smart Analysis', desc: 'Advanced technology for accurate insights' },
                 { icon: Shield, title: 'Secure & Private', desc: 'Your health data is encrypted and protected' },
                 { icon: Clock, title: 'Instant Results', desc: 'Get analysis in under 60 seconds' },
                 { icon: Heart, title: 'Lifestyle Tips', desc: 'Personalized diet and exercise recommendations' },
@@ -182,7 +182,7 @@ export default function AIHealthReportAnalyzer() {
                   transition={{ delay: i * 0.05 }}
                   className="p-6 rounded-2xl bg-card border hover:shadow-lg transition-all"
                 >
-                  <feature.icon className="w-10 h-10 text-health-500 mb-4" />
+                  <feature.icon className="w-10 h-10 text-red-500 mb-4" />
                   <h3 className="font-semibold mb-2">{feature.title}</h3>
                   <p className="text-sm text-muted-foreground">{feature.desc}</p>
                 </motion.div>
@@ -201,14 +201,14 @@ export default function AIHealthReportAnalyzer() {
               
               <div className="prose prose-lg dark:prose-invert max-w-none">
                 <p>
-                  Our AI health report analyzer supports a wide range of medical laboratory tests. 
+                  Our health report analyzer supports a wide range of medical laboratory tests. 
                   Whether you've just received your annual checkup results or specific diagnostic tests, 
                   we can help you understand what the numbers mean.
                 </p>
 
                 <h3>Complete Blood Count (CBC) Analysis</h3>
                 <p>
-                  The Complete Blood Count is one of the most common blood tests. Our AI analyzes key components including:
+                  The Complete Blood Count is one of the most common blood tests. We analyze key components including:
                 </p>
                 <ul>
                   <li><strong>Hemoglobin (Hb)</strong> - Measures oxygen-carrying capacity of blood</li>
@@ -232,7 +232,7 @@ export default function AIHealthReportAnalyzer() {
 
                 <h3>Liver Function Tests (LFT)</h3>
                 <p>
-                  Liver function tests help assess liver health. Our AI explains values for ALT, AST, 
+                  Liver function tests help assess liver health. We explain values for ALT, AST, 
                   ALP, Bilirubin, Albumin, and other liver markers.
                 </p>
 
@@ -245,7 +245,7 @@ export default function AIHealthReportAnalyzer() {
                 <h3>Thyroid Profile</h3>
                 <p>
                   Understand your thyroid function with TSH, T3, T4, and Free T4 analysis. 
-                  Our AI helps identify potential thyroid disorders.
+                  We help identify potential thyroid disorders.
                 </p>
 
                 <h3>Blood Sugar Tests</h3>
@@ -277,7 +277,7 @@ export default function AIHealthReportAnalyzer() {
                     className="p-6 rounded-xl bg-card border"
                   >
                     <h3 className="text-lg font-semibold mb-3 flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-health-500 flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                       {faq.question}
                     </h3>
                     <p className="text-muted-foreground pl-8">{faq.answer}</p>
@@ -296,7 +296,7 @@ export default function AIHealthReportAnalyzer() {
                 Ready to Understand Your Health Report?
               </h2>
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-                Upload your lab report now and get instant AI-powered analysis with 
+                Upload your lab report now and get instant analysis with 
                 easy-to-understand explanations and health recommendations.
               </p>
               <Button size="xl" variant="gradient" asChild>
@@ -312,7 +312,7 @@ export default function AIHealthReportAnalyzer() {
                   Blood Test Analysis →
                 </Link>
                 <Link to="/cholesterol-report-ai" className="text-primary hover:underline">
-                  Cholesterol Report AI →
+                  Cholesterol Report →
                 </Link>
                 <Link to="/blogs" className="text-primary hover:underline">
                   Health Articles →
@@ -326,7 +326,7 @@ export default function AIHealthReportAnalyzer() {
         <section className="py-8 bg-amber-50 dark:bg-amber-900/10 border-y border-amber-200 dark:border-amber-800">
           <div className="container mx-auto px-4 text-center">
             <p className="text-sm text-amber-800 dark:text-amber-200">
-              <strong>⚕️ Medical Disclaimer:</strong> The AI analysis provided is for educational and informational purposes only. 
+              <strong>⚕️ Medical Disclaimer:</strong> The analysis provided is for educational and informational purposes only. 
               It is not a substitute for professional medical advice, diagnosis, or treatment. 
               Always consult with a qualified healthcare provider for medical decisions.
             </p>
@@ -336,4 +336,3 @@ export default function AIHealthReportAnalyzer() {
     </>
   )
 }
-

@@ -409,7 +409,7 @@ export default function BlogEditor() {
   },
   "symptoms": ["symptom1", "symptom2"],
   "seo": {
-    "metaTitle": "SEO Title | HealthAI",
+    "metaTitle": "SEO Title | Health Scan",
     "metaDescription": "Meta description here...",
     "keywords": ["seo", "keywords"],
     "hindiMeta": {
@@ -427,7 +427,7 @@ export default function BlogEditor() {
     }
   ],
   "medicalReviewed": true,
-  "reviewedBy": "HealthAI Medical Team"
+  "reviewedBy": "Health Scan Medical Team"
 }`
 
   if (loading) {
@@ -876,7 +876,7 @@ export default function BlogEditor() {
                   name="seo.hindiMeta.title"
                   value={formData.seo.hindiMeta.title}
                   onChange={handleChange}
-                  placeholder="गुदा में जलन के कारण और उपचार | HealthAI"
+                  placeholder="गुदा में जलन के कारण और उपचार | Health Scan"
                   lang="hi"
                   maxLength={70}
                 />

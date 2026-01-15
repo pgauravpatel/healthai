@@ -14,7 +14,7 @@ export default function DiseaseSeo({ disease }) {
   const canonicalUrl = `${siteUrl}/diseases/${disease.slug}`
   
   // SEO title (optimized for search)
-  const title = `${disease.name}: Causes, Symptoms & Home Remedies | HealthAI`
+  const title = `${disease.name}: Causes, Symptoms & Home Remedies | Health Scan`
   
   // Meta description (155 chars max)
   const description = `Learn about ${disease.name.toLowerCase()}: common causes, symptoms, home care tips, and when to see a doctor. Safe, evidence-based health information.`
@@ -53,7 +53,7 @@ export default function DiseaseSeo({ disease }) {
     "lastReviewed": new Date().toISOString().split('T')[0],
     "reviewedBy": {
       "@type": "Organization",
-      "name": "HealthAI Medical Content Team"
+      "name": "Health Scan Medical Content Team"
     },
     "about": {
       "@type": "MedicalCondition",
@@ -136,7 +136,7 @@ export default function DiseaseSeo({ disease }) {
       <meta property="og:type" content="article" />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={`${siteUrl}/og-disease.png`} />
-      <meta property="og:site_name" content="HealthAI" />
+      <meta property="og:site_name" content="Health Scan" />
       <meta property="og:locale" content={currentLanguage === 'hi' ? 'hi_IN' : currentLanguage === 'es' ? 'es_ES' : 'en_US'} />
       
       {/* Twitter Card Tags */}

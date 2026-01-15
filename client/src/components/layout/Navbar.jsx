@@ -26,9 +26,9 @@ export default function Navbar() {
   const navLinks = [
     { href: '/', label: t('navbar.home'), icon: Home },
     { href: '/diseases', label: t('navbar.healthConditions', 'Health Conditions'), icon: Heart },
-    { href: '/ai-health-report-analyzer', label: t('navbar.reportAnalyzer'), icon: FileSearch },
+    { href: '/report-analyzer', label: t('navbar.reportAnalyzer'), icon: FileSearch },
     { href: '/blogs', label: t('navbar.blog'), icon: BookOpen },
-    { href: '/chat', label: t('navbar.aiAssistant'), icon: MessageCircle },
+    { href: '/chat', label: t('navbar.assistant'), icon: MessageCircle },
   ]
 
   const handleLogout = async () => {
@@ -40,12 +40,26 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo - Health Scan with fingerprint scanner */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-health-500 to-mint-500 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
-              <span className="text-white font-bold text-xl">+</span>
+            <div className="w-10 h-10 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
+              <svg viewBox="0 0 40 40" className="w-10 h-10">
+                {/* Corner brackets */}
+                <path d="M5 2 L2 2 L2 10" stroke="#16a34a" strokeWidth="2" fill="none" strokeLinecap="square"/>
+                <path d="M35 2 L38 2 L38 10" stroke="#16a34a" strokeWidth="2" fill="none" strokeLinecap="square"/>
+                <path d="M2 30 L2 38 L10 38" stroke="#16a34a" strokeWidth="2" fill="none" strokeLinecap="square"/>
+                <path d="M38 30 L38 38 L30 38" stroke="#16a34a" strokeWidth="2" fill="none" strokeLinecap="square"/>
+                {/* Fingerprint circles */}
+                <circle cx="20" cy="20" r="12" stroke="#16a34a" strokeWidth="1.5" fill="none"/>
+                <circle cx="20" cy="20" r="9" stroke="#16a34a" strokeWidth="1.5" fill="none"/>
+                <circle cx="20" cy="20" r="6" stroke="#16a34a" strokeWidth="1.5" fill="none"/>
+                <circle cx="20" cy="20" r="3" stroke="#16a34a" strokeWidth="1.5" fill="none"/>
+              </svg>
             </div>
-            <span className="font-bold text-xl gradient-text hidden sm:block">HealthAI</span>
+            <span className="font-bold text-xl hidden sm:block tracking-wide">
+              <span className="text-green-600">HEALTH</span>
+              <span className="text-gray-800 dark:text-white ml-1">SCAN</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}

@@ -40,7 +40,7 @@ export default function BlogCard({ blog, index = 0, priority = false }) {
         <div className="relative h-48 overflow-hidden bg-muted">
           <img
             src={blog.coverImage}
-            alt={`${blog.title} - ${blog.category} article on HealthAI`}
+            alt={`${blog.title} - ${blog.category} article on Health Scan`}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading={priority ? 'eager' : 'lazy'}
             decoding="async"
@@ -114,7 +114,7 @@ export default function BlogCard({ blog, index = 0, priority = false }) {
               <UserAvatar user={blog.author} size="sm" />
               <div className="text-sm">
                 <p className="font-medium" itemProp="name">
-                  {blog.author?.name || 'HealthAI Team'}
+                  {blog.author?.name || 'Health Scan Team'}
                 </p>
                 <time 
                   className="text-xs text-muted-foreground"

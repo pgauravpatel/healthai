@@ -1,7 +1,7 @@
 {
   "name": "healthai-server",
   "version": "1.0.0",
-  "description": "HealthAI - Healthcare Analyzer & Blog Platform Backend",
+  "description": "Health Scan - Healthcare Analyzer & Blog Platform Backend",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -15,7 +15,7 @@
     "blog",
     "mern"
   ],
-  "author": "HealthAI Team",
+  "author": "Health Scan Team",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",

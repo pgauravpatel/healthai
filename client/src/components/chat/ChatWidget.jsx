@@ -94,7 +94,7 @@ export default function ChatWidget() {
                   <span className="text-xl">🏥</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold">HealthAI Assistant</h3>
+                  <h3 className="font-semibold">Health Scan Assistant</h3>
                   <p className="text-xs text-white/80">Ask about health & wellness</p>
                 </div>
               </div>

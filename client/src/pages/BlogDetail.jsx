@@ -169,7 +169,7 @@ export default function BlogDetail() {
         <meta itemProp="headline" content={blog.title} />
         <meta itemProp="datePublished" content={blog.publishedAt || blog.createdAt} />
         <meta itemProp="dateModified" content={blog.updatedAt} />
-        <meta itemProp="author" content={blog.author?.name || 'HealthAI Team'} />
+        <meta itemProp="author" content={blog.author?.name || 'Health Scan Team'} />
         
         {/* Header */}
         <header className="bg-gradient-to-b from-muted/50 to-background py-8">
@@ -242,7 +242,7 @@ export default function BlogDetail() {
             <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-8">
               <div className="flex items-center gap-2" itemProp="author" itemScope itemType="https://schema.org/Person">
                 <UserAvatar user={blog.author} size="sm" />
-                <span itemProp="name">{blog.author?.name || 'HealthAI Team'}</span>
+                <span itemProp="name">{blog.author?.name || 'Health Scan Team'}</span>
               </div>
               <time 
                 dateTime={blog.publishedAt || blog.createdAt}
@@ -304,7 +304,7 @@ export default function BlogDetail() {
           >
             <img
               src={blog.coverImage}
-              alt={`${blog.title} - HealthAI Health Blog`}
+              alt={`${blog.title} - Health Scan Blog`}
               className="w-full h-64 md:h-96 object-cover rounded-2xl shadow-lg"
               loading="eager"
               itemProp="image"

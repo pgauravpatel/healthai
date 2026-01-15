@@ -53,7 +53,7 @@ export default function DiseasesIndex() {
   return (
     <>
       <Seo
-        title="Health Conditions & Everyday Health Problems | HealthAI"
+        title="Health Conditions & Everyday Health Problems | Health Scan"
         description="Learn about common health conditions like fungal infections, acidity, piles, fever, cold, and more. Get trusted information on symptoms, causes, home remedies, and when to see a doctor."
         keywords="health conditions, everyday health problems, fungal infection, mouth ulcer, piles, acidity, gas, skin rash, fever, cold, dandruff, itching, home remedies"
         canonicalUrl="/diseases"

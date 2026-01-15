@@ -22,13 +22,13 @@ export default function BlogSeo({ blog, faqs = [] }) {
   // ========== SEO TITLE & DESCRIPTION ==========
   // English title (primary)
   const seoTitle = blog.seo?.metaTitle || 
-    `${blog.title.substring(0, 50)} | HealthAI Health Blog`
+    `${blog.title.substring(0, 50)} | Health Scan Blog`
   
   // Meta description with Hindi keywords for search matching
   const hindiKeywords = blog.seo?.hindiMeta?.keywords?.join(' ') || ''
   const baseDescription = blog.seo?.metaDescription || 
     blog.excerpt?.substring(0, 140) ||
-    `Read about ${blog.title} on HealthAI.`
+    `Read about ${blog.title} on Health Scan.`
   
   // Combine English description with hidden Hindi keywords for SEO
   const seoDescription = hindiKeywords 
@@ -57,7 +57,7 @@ export default function BlogSeo({ blog, faqs = [] }) {
     : `${siteUrl}${blog.coverImage}`
 
   // Author info
-  const authorName = blog.author?.name || 'HealthAI Team'
+  const authorName = blog.author?.name || 'Health Scan Team'
   
   // Dates
   const publishedDate = blog.publishedAt || blog.createdAt
@@ -143,7 +143,7 @@ export default function BlogSeo({ blog, faqs = [] }) {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "HealthAI",
+      "name": "Health Scan",
       "logo": {
         "@type": "ImageObject",
         "url": `${siteUrl}/logo.png`,
@@ -194,7 +194,7 @@ export default function BlogSeo({ blog, faqs = [] }) {
     "lastReviewed": blog.medicalReviewed ? modifiedDate : undefined,
     "reviewedBy": blog.medicalReviewed ? {
       "@type": "Organization",
-      "name": blog.reviewedBy || "HealthAI Medical Content Team"
+      "name": blog.reviewedBy || "Health Scan Medical Content Team"
     } : undefined,
     "datePublished": publishedDate,
     "mainContentOfPage": {
@@ -262,7 +262,7 @@ export default function BlogSeo({ blog, faqs = [] }) {
       {/* ========== AUTHOR & MEDICAL ATTRIBUTION ========== */}
       <meta name="author" content={authorName} />
       {blog.medicalReviewed && (
-        <meta name="medical-reviewer" content={blog.reviewedBy || 'HealthAI Medical Team'} />
+        <meta name="medical-reviewer" content={blog.reviewedBy || 'Health Scan Medical Team'} />
       )}
       
       {/* ========== OPEN GRAPH TAGS ========== */}
@@ -274,7 +274,7 @@ export default function BlogSeo({ blog, faqs = [] }) {
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={blog.title} />
-      <meta property="og:site_name" content="HealthAI" />
+      <meta property="og:site_name" content="Health Scan" />
       <meta property="og:locale" content="en_US" />
       <meta property="og:locale:alternate" content="hi_IN" />
       
@@ -402,7 +402,7 @@ export function CategorySeo({ category, blogCount }) {
   const slug = category.toLowerCase().replace(/\s+/g, '-')
   const canonicalUrl = `${siteUrl}/blogs/category/${slug}`
   
-  const title = `${category} Health Articles | HealthAI Blog`
+  const title = `${category} Health Articles | Health Scan Blog`
   const description = getCategoryDescription(category, blogCount)
   
   const collectionPageSchema = {
@@ -476,13 +476,13 @@ export function CategorySeo({ category, blogCount }) {
  */
 function getCategoryDescription(category, count) {
   const descriptions = {
-    'Fitness': `Explore ${count}+ expert fitness articles on HealthAI. Discover workout tips, exercise guides, strength training, cardio routines, and science-backed fitness advice for all levels.`,
-    'Mental Health': `Read ${count}+ mental health articles on HealthAI. Expert guidance on stress management, anxiety, depression, mindfulness, therapy, and emotional wellness.`,
-    'Diet': `Browse ${count}+ nutrition and diet articles on HealthAI. Evidence-based advice on healthy eating, meal planning, weight management, and dietary guidelines.`,
-    'Diseases': `Learn about health conditions with ${count}+ disease information articles on HealthAI. Symptoms, causes, treatments, and prevention strategies explained.`,
-    'Wellness': `Discover ${count}+ wellness articles on HealthAI. Holistic health tips, self-care practices, lifestyle improvements, and preventive health strategies.`,
-    'Prevention': `Explore ${count}+ disease prevention articles on HealthAI. Learn about screening, vaccines, lifestyle factors, and proactive health measures.`,
-    'Lifestyle': `Read ${count}+ lifestyle health articles on HealthAI. Tips for sleep, work-life balance, healthy habits, and overall wellbeing.`
+    'Fitness': `Explore ${count}+ expert fitness articles on Health Scan. Discover workout tips, exercise guides, strength training, cardio routines, and science-backed fitness advice for all levels.`,
+    'Mental Health': `Read ${count}+ mental health articles on Health Scan. Expert guidance on stress management, anxiety, depression, mindfulness, therapy, and emotional wellness.`,
+    'Diet': `Browse ${count}+ nutrition and diet articles on Health Scan. Evidence-based advice on healthy eating, meal planning, weight management, and dietary guidelines.`,
+    'Diseases': `Learn about health conditions with ${count}+ disease information articles on Health Scan. Symptoms, causes, treatments, and prevention strategies explained.`,
+    'Wellness': `Discover ${count}+ wellness articles on Health Scan. Holistic health tips, self-care practices, lifestyle improvements, and preventive health strategies.`,
+    'Prevention': `Explore ${count}+ disease prevention articles on Health Scan. Learn about screening, vaccines, lifestyle factors, and proactive health measures.`,
+    'Lifestyle': `Read ${count}+ lifestyle health articles on Health Scan. Tips for sleep, work-life balance, healthy habits, and overall wellbeing.`
   }
-  return descriptions[category] || `Browse ${count}+ health articles about ${category} on HealthAI.`
+  return descriptions[category] || `Browse ${count}+ health articles about ${category} on Health Scan.`
 }

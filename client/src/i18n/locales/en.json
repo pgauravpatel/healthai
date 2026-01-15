@@ -17,6 +17,7 @@
     "success": "Success",
     "warning": "Warning",
     "info": "Information",
+    "important": "Important",
     "yes": "Yes",
     "no": "No",
     "ok": "OK",
@@ -34,7 +35,7 @@
   "navbar": {
     "home": "Home",
     "blog": "Health Blog",
-    "aiAssistant": "AI Assistant",
+    "assistant": "Health Assistant",
     "reportAnalyzer": "Report Analyzer",
     "admin": "Admin",
     "profile": "Profile",
@@ -74,24 +75,24 @@
     "createAccountSubtitle": "Join thousands of users improving their health"
   },
   "home": {
-    "heroTitle": "Your AI-Powered Health Companion",
-    "heroSubtitle": "Get instant health insights, analyze medical reports, and access expert health information - all powered by advanced AI technology.",
+    "heroTitle": "Your Trusted Health Companion",
+    "heroSubtitle": "Get instant health insights, analyze medical reports, and access expert health information - trusted by thousands.",
     "getStarted": "Get Started Free",
     "exploreBlog": "Explore Health Blog",
     "features": "Features",
     "featuresSubtitle": "Everything you need for better health understanding",
-    "feature1Title": "AI Health Assistant",
-    "feature1Desc": "Chat with our AI to understand symptoms, get lifestyle advice, and learn when to seek medical help.",
+    "feature1Title": "Health Assistant",
+    "feature1Desc": "Chat with our assistant to understand symptoms, get lifestyle advice, and learn when to seek medical help.",
     "feature2Title": "Report Analyzer",
     "feature2Desc": "Upload your lab reports and get easy-to-understand explanations of your test results.",
     "feature3Title": "Health Blog",
     "feature3Desc": "Stay informed with expert articles on fitness, nutrition, mental health, and disease prevention.",
     "ctaTitle": "Start Your Health Journey Today",
-    "ctaSubtitle": "Join thousands of users who trust HealthAI for their health information needs.",
+    "ctaSubtitle": "Join thousands of users who trust Health Scan for their health information needs.",
     "ctaButton": "Create Free Account"
   },
   "chat": {
-    "title": "AI Health Assistant",
+    "title": "Health Assistant",
     "subtitle": "Get health information, lifestyle advice, and guidance on when to see a doctor",
     "placeholder": "Type your health question...",
     "send": "Send",
@@ -101,9 +102,9 @@
     "deleteChat": "Delete Chat",
     "clearHistory": "Clear History",
     "thinking": "Thinking...",
-    "welcomeMessage": "Hello! I'm your AI health assistant. I can help you understand symptoms, provide lifestyle advice, and guide you on when to seek medical attention. How can I help you today?",
+    "welcomeMessage": "Hello! I'm your health assistant. I can help you understand symptoms, provide lifestyle advice, and guide you on when to seek medical attention. How can I help you today?",
     "errorMessage": "Sorry, I encountered an error. Please try again.",
-    "disclaimer": "This AI assistant provides general health information only. It is not a substitute for professional medical advice, diagnosis, or treatment."
+    "disclaimer": "This assistant provides general health information only. It is not a substitute for professional medical advice, diagnosis, or treatment."
   },
   "report": {
     "title": "Health Report Analyzer",
@@ -242,8 +243,8 @@
     "insufficientCredits": "Insufficient credits. Please upgrade your plan."
   },
   "disclaimers": {
-    "medical": "⚕️ Medical Disclaimer: The information provided is for educational purposes only and is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.",
-    "ai": "This AI-generated content is for informational purposes only and should not replace professional medical consultation.",
+    "medical": "The information provided is for educational purposes only and is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.",
+    "assistant": "This content is for informational purposes only and should not replace professional medical consultation.",
     "emergency": "🚨 In case of a medical emergency, please call your local emergency services immediately."
   },
   "languages": {
@@ -266,36 +267,35 @@
     "whenToSeeDoctor": "When to Consult a Doctor",
     "faqs": "Frequently Asked Questions",
     "relatedConditions": "Related Conditions",
-    "askAI": "Ask AI Assistant",
+    "askAssistant": "Ask Health Assistant",
     "askAbout": "Get answers about",
-    "aiDisclaimer": "AI provides general guidance only, not medical advice",
+    "assistantDisclaimer": "Provides general guidance only, not medical advice",
     "exploreMore": "Explore More",
     "browseOther": "Browse Other Health Conditions",
     "needHelp": "Need More Help?",
-    "helpDesc": "Our AI-powered tools can help you understand your health better"
+    "helpDesc": "Our tools can help you understand your health better"
   },
   "seo": {
-    "defaultTitle": "HealthAI - AI Health Report Analyzer | Understand Your Lab Reports",
-    "defaultDescription": "Analyze your health reports with AI. Get easy-to-understand explanations of blood tests, lab reports, and medical documents in English, Hindi, and Spanish.",
-    "homeTitle": "HealthAI - Your AI-Powered Health Companion",
-    "homeDescription": "Get instant health insights, analyze medical reports, and access expert health information with AI technology. Free blood test analysis and health guidance.",
-    "homeKeywords": "health AI, blood test analyzer, lab report analysis, medical report AI, health assistant, blood test interpretation, health checkup analysis",
-    "reportAnalyzerTitle": "AI Health Report Analyzer - Understand Your Lab Tests",
-    "reportAnalyzerDescription": "Upload your blood test or lab report and get instant AI-powered analysis. Understand your health results with simple explanations and lifestyle recommendations.",
-    "reportAnalyzerKeywords": "blood test analyzer, lab report analysis, health report AI, medical test interpretation, CBC analysis, lipid panel analyzer",
-    "bloodTestTitle": "Free Blood Test Analysis - AI-Powered CBC & Lipid Panel Interpreter",
-    "bloodTestDescription": "Get your blood test results analyzed by AI. Understand CBC, lipid panels, liver function tests, and more with easy explanations and health recommendations.",
-    "bloodTestKeywords": "blood test analysis, CBC analyzer, lipid panel interpretation, hemoglobin levels, cholesterol analysis, blood report AI",
-    "cholesterolTitle": "AI Cholesterol Report Analyzer - Understand Your Lipid Panel",
-    "cholesterolDescription": "Analyze your cholesterol and lipid panel results with AI. Get easy-to-understand explanations of LDL, HDL, triglycerides, and heart health recommendations.",
-    "cholesterolKeywords": "cholesterol analyzer, lipid panel AI, LDL HDL analysis, triglycerides interpretation, heart health report, cholesterol test analyzer",
+    "defaultTitle": "Health Scan | Understand Your Health Reports & Medical Information",
+    "defaultDescription": "Analyze your health reports easily. Get simple explanations of blood tests, lab reports, and medical documents in English, Hindi, and Spanish.",
+    "homeTitle": "Health Scan | Your Trusted Health Companion",
+    "homeDescription": "Get instant health insights, analyze medical reports, and access expert health information. Free blood test analysis and health guidance.",
+    "homeKeywords": "health analyzer, blood test analyzer, lab report analysis, medical report, health assistant, blood test interpretation, health checkup analysis",
+    "reportAnalyzerTitle": "Health Report Analyzer - Understand Your Lab Tests",
+    "reportAnalyzerDescription": "Upload your blood test or lab report and get instant analysis. Understand your health results with simple explanations and lifestyle recommendations.",
+    "reportAnalyzerKeywords": "blood test analyzer, lab report analysis, health report analyzer, medical test interpretation, CBC analysis, lipid panel analyzer",
+    "bloodTestTitle": "Free Blood Test Analysis - CBC & Lipid Panel Interpreter",
+    "bloodTestDescription": "Get your blood test results analyzed. Understand CBC, lipid panels, liver function tests, and more with easy explanations and health recommendations.",
+    "bloodTestKeywords": "blood test analysis, CBC analyzer, lipid panel interpretation, hemoglobin levels, cholesterol analysis, blood report",
+    "cholesterolTitle": "Cholesterol Report Analyzer - Understand Your Lipid Panel",
+    "cholesterolDescription": "Analyze your cholesterol and lipid panel results. Get easy-to-understand explanations of LDL, HDL, triglycerides, and heart health recommendations.",
+    "cholesterolKeywords": "cholesterol analyzer, lipid panel, LDL HDL analysis, triglycerides interpretation, heart health report, cholesterol test analyzer",
     "blogTitle": "Health Blog - Expert Articles on Wellness & Medical Information",
     "blogDescription": "Read expert health articles on fitness, nutrition, mental health, and disease prevention. Evidence-based health information for better living.",
     "blogKeywords": "health blog, medical articles, wellness tips, nutrition guide, mental health, fitness advice, disease prevention",
-    "loginTitle": "Login to HealthAI - Access Your Health Dashboard",
-    "loginDescription": "Sign in to your HealthAI account to access your health reports, chat history, and personalized health insights.",
-    "registerTitle": "Create HealthAI Account - Start Your Health Journey",
-    "registerDescription": "Join HealthAI for free. Get AI-powered health report analysis, personalized recommendations, and access to expert health content."
+    "loginTitle": "Login to Health Scan - Access Your Health Dashboard",
+    "loginDescription": "Sign in to your Health Scan account to access your health reports, chat history, and personalized health insights.",
+    "registerTitle": "Create Health Scan Account - Start Your Health Journey",
+    "registerDescription": "Join Health Scan for free. Get health report analysis, personalized recommendations, and access to expert health content."
   }
 }
-

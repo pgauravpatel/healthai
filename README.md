@@ -1,12 +1,12 @@
-# 🏥 HealthAI – Healthcare Analyzer & Blog Platform
+# 🏥 Health Scan – Healthcare Analyzer & Blog Platform
 
-A modern, production-ready MERN stack application that provides AI-powered healthcare assistance and a comprehensive health blog platform.
+A modern, production-ready MERN stack application that provides healthcare assistance and a comprehensive health blog platform.
 
-![HealthAI](https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=400&fit=crop)
+![Health Scan](https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=400&fit=crop)
 
 ## ✨ Features
 
-### 🤖 AI Healthcare Chatbot
+### 🩺 Health Assistant
 - ChatGPT-style conversational interface
 - General health information and lifestyle guidance
 - Smart follow-up questions for vague symptoms
@@ -21,6 +21,12 @@ A modern, production-ready MERN stack application that provides AI-powered healt
 - Like and bookmark functionality
 - Comment system for discussions
 - SEO-optimized content
+
+### 📊 Report Analyzer
+- Upload health reports (PDF/Images)
+- Get easy-to-understand explanations
+- Support for blood tests, CBC, lipid panels
+- Multi-language support (English, Hindi, Spanish)
 
 ### 🔐 User Authentication
 - Secure JWT-based authentication with HttpOnly cookies
@@ -56,7 +62,7 @@ A modern, production-ready MERN stack application that provides AI-powered healt
 The platform includes:
 - Global medical disclaimer banner
 - Emergency keyword detection
-- Consistent safety messaging in AI responses
+- Consistent safety messaging in responses
 
 ## 🚀 Tech Stack
 
@@ -74,7 +80,7 @@ The platform includes:
 - **MongoDB** with Mongoose ODM
 - **JWT** for authentication
 - **Zod** for validation
-- **OpenAI API** for AI chat
+- **OpenAI API** for chat
 - **Express Rate Limit** for API protection
 - **Helmet** for security headers
 
@@ -164,7 +170,7 @@ npm run seed
 ```
 
 This creates:
-- Admin user: `admin@healthai.com` / `admin123`
+- Admin user: `admin@healthscan.com` / `admin123`
 - Regular user: `john@example.com` / `user123`
 - Sample blog posts
 
@@ -177,7 +183,7 @@ PORT=5000
 NODE_ENV=development
 
 # MongoDB Connection
-MONGODB_URI=mongodb://localhost:27017/healthai
+MONGODB_URI=mongodb://localhost:27017/healthscan
 
 # JWT Configuration
 JWT_SECRET=your_super_secret_jwt_key_here
@@ -212,7 +218,7 @@ AI_RATE_LIMIT_MAX_REQUESTS=20
 ### Chat
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | `/api/chat` | Send message to AI |
+| POST | `/api/chat` | Send message to assistant |
 | GET | `/api/chat` | Get all user chats |
 | GET | `/api/chat/:id` | Get specific chat |
 | DELETE | `/api/chat/:id` | Delete chat |
@@ -250,7 +256,7 @@ AI_RATE_LIMIT_MAX_REQUESTS=20
 ## 🧪 Testing
 
 ### Test Accounts (after seeding)
-- **Admin:** admin@healthai.com / admin123
+- **Admin:** admin@healthscan.com / admin123
 - **User:** john@example.com / user123
 
 ### API Health Check
@@ -299,7 +305,7 @@ Supports light and dark modes with:
 
 ## ⚠️ Medical Disclaimer
 
-**HealthAI is for informational purposes only.**
+**Health Scan is for informational purposes only.**
 
 This platform:
 - Does NOT diagnose medical conditions
@@ -327,4 +333,3 @@ For issues or questions, please open a GitHub issue.
 ---
 
 Built with ❤️ for better health awareness
-

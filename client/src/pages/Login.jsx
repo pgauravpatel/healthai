@@ -69,10 +69,13 @@ export default function Login() {
         >
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 mb-8">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-health-500 to-mint-500 flex items-center justify-center">
-              <span className="text-white font-bold text-xl">+</span>
+            <div className="w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center shadow-md">
+              <span className="text-red-600 font-bold text-2xl">+</span>
             </div>
-            <span className="font-bold text-xl gradient-text">HealthAI</span>
+            <span className="font-bold text-xl">
+              <span className="text-gray-800 dark:text-white">Health</span>
+              <span className="text-red-600">+</span>
+            </span>
           </Link>
 
           <h1 className="text-3xl font-bold mb-2">{t('auth.welcomeBack')}</h1>

@@ -87,11 +87,13 @@ export default function App() {
       <Route path="/" element={<Layout><Home /></Layout>} />
       
       {/* SEO Landing Pages - High-priority public pages */}
-      <Route path="/ai-health-report-analyzer" element={
+      <Route path="/report-analyzer-info" element={
         <Layout>
           <LazyRoute><AIHealthReportAnalyzer /></LazyRoute>
         </Layout>
       } />
+      {/* Redirect old AI route to new route */}
+      <Route path="/ai-health-report-analyzer" element={<Navigate to="/report-analyzer-info" replace />} />
       <Route path="/blood-test-analysis" element={
         <Layout>
           <LazyRoute><BloodTestAnalysis /></LazyRoute>

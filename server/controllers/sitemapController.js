@@ -135,7 +135,7 @@ function generateUrlEntry(baseUrl, path, lastmod, changefreq, priority) {
 export const generateRobotsTxt = (req, res) => {
   const baseUrl = process.env.CLIENT_URL || 'https://healthai.vercel.app';
   
-  const robotsTxt = `# HealthAI Robots.txt
+  const robotsTxt = `# Health Scan Robots.txt
 # https://healthai.vercel.app
 
 User-agent: *

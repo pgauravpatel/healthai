@@ -15,7 +15,7 @@ export default function Disclaimer() {
           </div>
           <h1 className="text-4xl font-bold mb-4">Medical Disclaimer</h1>
           <p className="text-muted-foreground text-lg">
-            Important information about the use of HealthAI
+            Important information about the use of Health Scan
           </p>
         </div>
 
@@ -27,12 +27,12 @@ export default function Disclaimer() {
               General Disclaimer
             </h2>
             <p className="text-amber-700 dark:text-amber-300 mb-0">
-              The information provided by HealthAI is for <strong>general educational and informational purposes only</strong>. 
+              The information provided by Health Scan is for <strong>general educational and informational purposes only</strong>. 
               It is not intended to be a substitute for professional medical advice, diagnosis, or treatment.
             </p>
           </div>
 
-          <h2>What HealthAI Does</h2>
+          <h2>What Health Scan Does</h2>
           <ul>
             <li>Provides general health information and education</li>
             <li>Offers lifestyle and wellness guidance</li>
@@ -41,7 +41,7 @@ export default function Disclaimer() {
             <li>Provides health-related articles and resources</li>
           </ul>
 
-          <h2>What HealthAI Does NOT Do</h2>
+          <h2>What Health Scan Does NOT Do</h2>
           <ul>
             <li>Diagnose medical conditions or diseases</li>
             <li>Prescribe medications or treatments</li>
@@ -79,19 +79,19 @@ export default function Disclaimer() {
 
           <h2>No Doctor-Patient Relationship</h2>
           <p>
-            Your use of this platform does not create a doctor-patient relationship between you and HealthAI 
-            or any of its affiliates. The AI assistant is not a licensed healthcare provider and cannot 
+            Your use of this platform does not create a doctor-patient relationship between you and Health Scan 
+            or any of its affiliates. The assistant is not a licensed healthcare provider and cannot 
             diagnose, treat, cure, or prevent any disease or health condition.
           </p>
 
           <h2>User Responsibility</h2>
           <p>
-            By using HealthAI, you acknowledge and agree that:
+            By using Health Scan, you acknowledge and agree that:
           </p>
           <ul>
             <li>You are responsible for your own health decisions</li>
             <li>You will consult qualified healthcare providers for medical advice</li>
-            <li>You understand the limitations of AI-generated health information</li>
+            <li>You understand the limitations of health information on this platform</li>
             <li>You will not use this platform as a substitute for professional care</li>
           </ul>
 
@@ -101,7 +101,7 @@ export default function Disclaimer() {
               Our Commitment
             </h2>
             <p className="mb-0">
-              HealthAI is committed to providing helpful health information while always encouraging 
+              Health Scan is committed to providing helpful health information while always encouraging 
               users to seek professional medical care. Your health and safety are our top priorities. 
               We believe in empowering individuals with knowledge while respecting the irreplaceable 
               value of qualified healthcare professionals.
@@ -117,4 +117,3 @@ export default function Disclaimer() {
     </div>
   )
 }
-

@@ -1,5 +1,5 @@
-# HealthAI Robots.txt
-# https://healthai.vercel.app
+# Health Scan Robots.txt
+# https://healthscan.vercel.app
 
 User-agent: *
 Allow: /
@@ -12,7 +12,7 @@ User-agent: Bingbot
 Allow: /
 
 # Dynamic Sitemap location (generated from database)
-Sitemap: https://healthai-wmjx.onrender.com/api/sitemap.xml
+Sitemap: https://healthscan-api.onrender.com/api/sitemap.xml
 
 # Disallow private/admin areas from indexing
 Disallow: /admin
@@ -23,7 +23,7 @@ Disallow: /profile
 Disallow: /bookmarks
 
 # Allow SEO landing pages
-Allow: /ai-health-report-analyzer
+Allow: /report-analyzer-info
 Allow: /blood-test-analysis
 Allow: /cholesterol-report-ai
 Allow: /about
@@ -39,4 +39,3 @@ Allow: /diseases/*
 
 # Crawl-delay for politeness
 Crawl-delay: 1
-

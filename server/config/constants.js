@@ -1,6 +1,6 @@
 /**
  * Application Constants
- * Centralized configuration for the HealthAI platform
+ * Centralized configuration for the Health Scan platform
  */
 
 // User roles
@@ -21,7 +21,7 @@ export const BLOG_CATEGORIES = [
 ];
 
 // AI System Prompt - Core prompt engineering for healthcare assistant
-export const AI_SYSTEM_PROMPT = `You are HealthAI, a friendly and knowledgeable healthcare assistant. You provide general health information and lifestyle advice to help users understand their health better.
+export const AI_SYSTEM_PROMPT = `You are a friendly and knowledgeable healthcare assistant for Health Scan. You provide general health information and lifestyle advice to help users understand their health better.
 
 IMPORTANT GUIDELINES:
 1. You do NOT diagnose medical conditions
@@ -53,7 +53,7 @@ Remember: You are here to inform and support, not to replace medical professiona
 // Medical disclaimer text
 export const MEDICAL_DISCLAIMER = {
   short: "This is general health information only. Always consult a healthcare professional for medical advice.",
-  full: "⚕️ Medical Disclaimer: The information provided by HealthAI is for general educational and informational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read or received from this AI assistant. If you think you may have a medical emergency, call your doctor, go to the emergency department, or call emergency services immediately."
+  full: "⚕️ Medical Disclaimer: The information provided by Health Scan is for general educational and informational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read or received from this assistant. If you think you may have a medical emergency, call your doctor, go to the emergency department, or call emergency services immediately."
 };
 
 // Emergency keywords that trigger immediate medical attention warning

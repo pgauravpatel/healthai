@@ -16,7 +16,7 @@ const server = app.listen(PORT, () => {
   console.log(`
 ╔══════════════════════════════════════════════════════════╗
 ║                                                          ║
-║   🏥 HealthAI Server Running                             ║
+║   🏥 Health Scan Server Running                              ║
 ║                                                          ║
 ║   Environment: ${process.env.NODE_ENV || 'development'}                              ║
 ║   Port: ${PORT}                                            ║

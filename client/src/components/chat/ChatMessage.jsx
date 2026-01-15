@@ -40,7 +40,7 @@ export default function ChatMessage({ message, isLatest = false }) {
       <div className={`flex-1 max-w-[80%] ${isUser ? 'text-right' : ''}`}>
         <div className="flex items-center gap-2 mb-1">
           <span className="text-sm font-medium">
-            {isUser ? 'You' : 'HealthAI'}
+            {isUser ? 'You' : 'Health Scan'}
           </span>
           {message.timestamp && (
             <span className="text-xs text-muted-foreground">
