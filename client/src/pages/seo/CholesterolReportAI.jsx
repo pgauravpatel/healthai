@@ -34,7 +34,7 @@ export default function CholesterolReportAI() {
     ...getMedicalWebPageSchema(
       t('seo.cholesterolTitle'),
       t('seo.cholesterolDescription'),
-      'https://www.healthreportscan.info/cholesterol-report-ai'
+      'https://healthreportscan.info/cholesterol-report-ai'
     ),
     ...getFAQSchema(faqs)
   }

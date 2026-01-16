@@ -34,7 +34,7 @@ export default function BloodTestAnalysis() {
     ...getMedicalWebPageSchema(
       t('seo.bloodTestTitle'),
       t('seo.bloodTestDescription'),
-      'https://www.healthreportscan.info/blood-test-analysis'
+      'https://healthreportscan.info/blood-test-analysis'
     ),
     ...getFAQSchema(faqs)
   }

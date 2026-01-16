@@ -6,7 +6,7 @@ import Blog from '../models/Blog.js';
  */
 export const generateSitemap = async (req, res) => {
   try {
-    const baseUrl = process.env.CLIENT_URL || 'https://www.healthreportscan.info';
+    const baseUrl = process.env.CLIENT_URL || 'https://healthreportscan.info';
     const currentDate = new Date().toISOString().split('T')[0];
 
     // Fetch all published blogs with multilingual SEO data
@@ -133,10 +133,10 @@ function generateUrlEntry(baseUrl, path, lastmod, changefreq, priority) {
  * Generate robots.txt dynamically
  */
 export const generateRobotsTxt = (req, res) => {
-  const baseUrl = process.env.CLIENT_URL || 'https://www.healthreportscan.info';
+  const baseUrl = process.env.CLIENT_URL || 'https://healthreportscan.info';
   
   const robotsTxt = `# Health Scan Robots.txt
-# https://www.healthreportscan.info
+# https://healthreportscan.info
 
 User-agent: *
 Allow: /

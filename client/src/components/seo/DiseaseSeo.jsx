@@ -7,7 +7,7 @@ import { useLanguage } from '@/context/LanguageContext'
  */
 export default function DiseaseSeo({ disease }) {
   const { currentLanguage } = useLanguage()
-  const siteUrl = 'https://www.healthreportscan.info'
+  const siteUrl = 'https://healthreportscan.info'
   
   if (!disease) return null
 

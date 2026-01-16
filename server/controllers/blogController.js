@@ -1,6 +1,21 @@
 import Blog from '../models/Blog.js';
 import { asyncHandler } from '../middlewares/errorHandler.js';
 import { detectLanguage, buildMultilingualSearchQuery } from '../utils/languageDetector.js';
+import { writeSitemapToFile } from '../utils/sitemapGenerator.js';
+
+/**
+ * Regenerate sitemap in background (non-blocking)
+ */
+const regenerateSitemap = () => {
+  setImmediate(async () => {
+    try {
+      await writeSitemapToFile();
+      console.log('🗺️ Sitemap regenerated after blog change');
+    } catch (error) {
+      console.error('Failed to regenerate sitemap:', error.message);
+    }
+  });
+};
 
 /**
  * @desc    Get all published blogs
@@ -454,6 +469,11 @@ export const createBlog = asyncHandler(async (req, res) => {
 
   const blog = await Blog.create(blogData);
 
+  // Regenerate sitemap if blog is published
+  if (blog.isPublished) {
+    regenerateSitemap();
+  }
+
   res.status(201).json({
     success: true,
     message: 'Blog created successfully',
@@ -476,11 +496,18 @@ export const updateBlog = asyncHandler(async (req, res) => {
     });
   }
 
+  const wasPublished = blog.isPublished;
+  
   blog = await Blog.findByIdAndUpdate(
     req.params.id,
     req.body,
     { new: true, runValidators: true }
   );
+
+  // Regenerate sitemap if blog is published or was published
+  if (blog.isPublished || wasPublished) {
+    regenerateSitemap();
+  }
 
   res.json({
     success: true,
@@ -504,7 +531,13 @@ export const deleteBlog = asyncHandler(async (req, res) => {
     });
   }
 
+  const wasPublished = blog.isPublished;
   await blog.deleteOne();
+
+  // Regenerate sitemap if deleted blog was published
+  if (wasPublished) {
+    regenerateSitemap();
+  }
 
   res.json({
     success: true,
@@ -534,6 +567,9 @@ export const togglePublish = asyncHandler(async (req, res) => {
   }
 
   await blog.save();
+
+  // Always regenerate sitemap on publish/unpublish
+  regenerateSitemap();
 
   res.json({
     success: true,

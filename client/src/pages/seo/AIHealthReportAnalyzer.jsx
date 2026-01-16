@@ -38,7 +38,7 @@ export default function AIHealthReportAnalyzer() {
     ...getMedicalWebPageSchema(
       t('seo.reportAnalyzerTitle'),
       t('seo.reportAnalyzerDescription'),
-      'https://www.healthreportscan.info/report-analyzer-info'
+      'https://healthreportscan.info/report-analyzer-info'
     ),
     ...getFAQSchema(faqs)
   }
