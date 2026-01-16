@@ -44,7 +44,7 @@ export default function DiseasesIndex() {
       "itemListElement": allDiseases.map((disease, i) => ({
         "@type": "ListItem",
         "position": i + 1,
-        "url": `https://healthai.vercel.app/diseases/${disease.slug}`,
+        "url": `https://www.healthreportscan.info/diseases/${disease.slug}`,
         "name": disease.name
       }))
     }

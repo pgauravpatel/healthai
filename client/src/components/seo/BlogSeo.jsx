@@ -15,7 +15,7 @@ import { useLanguage } from '@/context/LanguageContext'
  */
 export default function BlogSeo({ blog, faqs = [] }) {
   const { currentLanguage } = useLanguage()
-  const siteUrl = 'https://healthai.vercel.app'
+  const siteUrl = 'https://www.healthreportscan.info'
   
   if (!blog) return null
 
@@ -398,7 +398,7 @@ function getMedicalConditions(symptoms, tags, category) {
  */
 export function CategorySeo({ category, blogCount }) {
   const { currentLanguage } = useLanguage()
-  const siteUrl = 'https://healthai.vercel.app'
+  const siteUrl = 'https://www.healthreportscan.info'
   const slug = category.toLowerCase().replace(/\s+/g, '-')
   const canonicalUrl = `${siteUrl}/blogs/category/${slug}`
   

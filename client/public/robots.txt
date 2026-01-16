@@ -1,41 +1,41 @@
 # Health Scan Robots.txt
-# https://healthscan.vercel.app
+# https://www.healthreportscan.info
 
 User-agent: *
 Allow: /
 
-# Allow all search engines to crawl
+# Google Bot - Allow all
 User-agent: Googlebot
 Allow: /
 
+# Bing Bot - Allow all
 User-agent: Bingbot
 Allow: /
 
-# Dynamic Sitemap location (generated from database)
-Sitemap: https://healthscan-api.onrender.com/api/sitemap.xml
-
-# Disallow private/admin areas from indexing
-Disallow: /admin
-Disallow: /admin/*
-Disallow: /chat/history
-Disallow: /reports/history
-Disallow: /profile
-Disallow: /bookmarks
-
-# Allow SEO landing pages
+# Allow important SEO pages
 Allow: /report-analyzer-info
 Allow: /blood-test-analysis
 Allow: /cholesterol-report-ai
+Allow: /report-analyzer
 Allow: /about
 Allow: /blogs
 Allow: /blogs/*
 Allow: /blogs/category/*
-Allow: /report-analyzer
-Allow: /disclaimer
-
-# Allow disease/health condition pages
 Allow: /diseases
 Allow: /diseases/*
 
-# Crawl-delay for politeness
+# Disallow private/admin areas
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /chat
+Disallow: /chat/*
+Disallow: /reports/history
+Disallow: /profile
+Disallow: /bookmarks
+
+# Sitemaps
+Sitemap: https://www.healthreportscan.info/sitemap.xml
+Sitemap: https://www.healthreportscan.info/api/sitemap.xml
+
+# Crawl-delay
 Crawl-delay: 1

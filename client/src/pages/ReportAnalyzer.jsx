@@ -79,7 +79,7 @@ export default function ReportAnalyzer() {
   const reportSchema = getMedicalWebPageSchema(
     t('seo.reportAnalyzerTitle'),
     t('seo.reportAnalyzerDescription'),
-    'https://healthai.vercel.app/report-analyzer'
+    'https://www.healthreportscan.info/report-analyzer'
   )
 
   // Not logged in state

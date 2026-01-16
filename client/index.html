@@ -10,36 +10,39 @@
     <title>Health Scan | Understand Your Health Reports & Medical Information</title>
     <meta name="title" content="Health Scan | Understand Your Health Reports & Medical Information" />
     <meta name="description" content="Understand your health reports easily. Get simple explanations of blood tests, CBC, lipid panels, and other medical lab reports in English, Hindi, and Spanish." />
-    <meta name="keywords" content="health report analyzer, blood test analyzer, lab report analysis, medical report, health assistant, blood test interpretation, CBC analysis, cholesterol analyzer, health checkup analysis" />
+    <meta name="keywords" content="health report analyzer, blood test analyzer, lab report analysis, medical report, health assistant, blood test interpretation, CBC analysis, cholesterol analyzer, health checkup analysis, स्वास्थ्य रिपोर्ट, ब्लड टेस्ट" />
     <meta name="author" content="Health Scan" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://healthscan.vercel.app/" />
+    <meta property="og:url" content="https://www.healthreportscan.info/" />
     <meta property="og:title" content="Health Scan | Understand Your Health Reports & Medical Information" />
     <meta property="og:description" content="Understand your health reports easily. Get simple explanations of blood tests, lab reports, and medical documents." />
-    <meta property="og:image" content="https://healthscan.vercel.app/og-image.svg" />
+    <meta property="og:image" content="https://www.healthreportscan.info/og-image.svg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Health Scan" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="hi_IN" />
+    <meta property="og:locale:alternate" content="es_ES" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://healthscan.vercel.app/" />
+    <meta name="twitter:url" content="https://www.healthreportscan.info/" />
     <meta name="twitter:title" content="Health Scan | Understand Your Health Reports & Medical Information" />
     <meta name="twitter:description" content="Understand your health reports easily. Get simple explanations of blood tests, lab reports, and medical documents." />
-    <meta name="twitter:image" content="https://healthscan.vercel.app/og-image.svg" />
+    <meta name="twitter:image" content="https://www.healthreportscan.info/og-image.svg" />
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://healthscan.vercel.app/" />
+    <link rel="canonical" href="https://www.healthreportscan.info/" />
     
-    <!-- Language Alternates -->
-    <link rel="alternate" hreflang="en" href="https://healthscan.vercel.app/" />
-    <link rel="alternate" hreflang="hi" href="https://healthscan.vercel.app/?lang=hi" />
-    <link rel="alternate" hreflang="es" href="https://healthscan.vercel.app/?lang=es" />
-    <link rel="alternate" hreflang="x-default" href="https://healthscan.vercel.app/" />
+    <!-- Language Alternates for Multilingual SEO -->
+    <link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/" />
+    <link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/?lang=hi" />
+    <link rel="alternate" hreflang="es" href="https://www.healthreportscan.info/?lang=es" />
+    <link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/" />
     
     <!-- Theme Color - Green for Health Scan -->
     <meta name="theme-color" content="#16a34a" />
@@ -63,9 +66,14 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Health Scan",
-      "url": "https://healthscan.vercel.app",
-      "logo": "https://healthscan.vercel.app/favicon.svg",
-      "description": "Health report analyzer providing easy-to-understand explanations of medical lab reports.",
+      "url": "https://www.healthreportscan.info",
+      "logo": "https://www.healthreportscan.info/favicon.svg",
+      "description": "Health report analyzer providing easy-to-understand explanations of medical lab reports in English, Hindi, and Spanish.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Hindi", "Spanish"]
+      },
       "sameAs": []
     }
     </script>
@@ -76,8 +84,10 @@
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Health Scan Report Analyzer",
+      "url": "https://www.healthreportscan.info",
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Web",
+      "inLanguage": ["en", "hi", "es"],
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -91,6 +101,24 @@
         "Expert explanations",
         "Lifestyle recommendations"
       ]
+    }
+    </script>
+    
+    <!-- Structured Data for MedicalOrganization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalOrganization",
+      "name": "Health Scan",
+      "url": "https://www.healthreportscan.info",
+      "logo": "https://www.healthreportscan.info/favicon.svg",
+      "description": "Online platform for understanding health reports and medical information",
+      "medicalSpecialty": ["Laboratory Medicine", "Preventive Medicine"],
+      "availableService": {
+        "@type": "MedicalProcedure",
+        "name": "Health Report Analysis",
+        "description": "Analysis and explanation of medical lab reports"
+      }
     }
     </script>
   </body>

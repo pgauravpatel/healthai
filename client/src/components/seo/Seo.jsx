@@ -36,7 +36,7 @@ export default function Seo({
   
   const fullTitle = title ? `${title} | Health Scan` : defaultTitle
   const metaDescription = description || defaultDescription
-  const siteUrl = 'https://healthai.vercel.app' // Update with your domain
+  const siteUrl = 'https://www.healthreportscan.info'
   const fullCanonicalUrl = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl
   const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`
 
@@ -113,8 +113,8 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Health Scan",
-  "url": "https://healthai.vercel.app",
-  "logo": "https://healthai.vercel.app/logo.png",
+  "url": "https://www.healthreportscan.info",
+  "logo": "https://www.healthreportscan.info/favicon.svg",
   "description": "Health report analyzer providing easy-to-understand explanations of medical lab reports.",
   "sameAs": [],
   "contactPoint": {
@@ -212,12 +212,12 @@ export const getArticleSchema = (article) => ({
     "name": "Health Scan",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://healthai.vercel.app/logo.png"
+      "url": "https://www.healthreportscan.info/favicon.svg"
     }
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": `https://healthai.vercel.app/blogs/${article.slug}`
+    "@id": `https://www.healthreportscan.info/blogs/${article.slug}`
   }
 })
 

@@ -1,151 +1,295 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
-  Static Sitemap for Health Scan
-  Note: Blog posts are dynamically generated via /api/sitemap.xml
-  This file serves as a fallback for static pages
+  Health Scan Static Sitemap
+  Domain: https://www.healthreportscan.info
+  Dynamic blog sitemap: /api/sitemap.xml
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   
-  <!-- Homepage -->
+  <!-- Homepage - Highest Priority -->
   <url>
-    <loc>https://healthscan.vercel.app/</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.healthreportscan.info/</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://healthscan.vercel.app/" />
-    <xhtml:link rel="alternate" hreflang="hi" href="https://healthscan.vercel.app/?lang=hi" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://healthscan.vercel.app/?lang=es" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/?lang=hi" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.healthreportscan.info/?lang=es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/" />
   </url>
 
-  <!-- Health Report Analyzer Info (SEO Page) -->
+  <!-- Health Report Analyzer - Primary SEO Landing Page -->
   <url>
-    <loc>https://healthscan.vercel.app/report-analyzer-info</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.healthreportscan.info/report-analyzer-info</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/report-analyzer-info" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/report-analyzer-info?lang=hi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/report-analyzer-info" />
   </url>
 
-  <!-- Blood Test Analysis -->
+  <!-- Blood Test Analysis - High Value SEO Page -->
   <url>
-    <loc>https://healthscan.vercel.app/blood-test-analysis</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.healthreportscan.info/blood-test-analysis</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/blood-test-analysis" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/blood-test-analysis?lang=hi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/blood-test-analysis" />
   </url>
 
   <!-- Cholesterol Report Analyzer -->
   <url>
-    <loc>https://healthscan.vercel.app/cholesterol-report-ai</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.healthreportscan.info/cholesterol-report-ai</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/cholesterol-report-ai" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/cholesterol-report-ai?lang=hi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/cholesterol-report-ai" />
   </url>
 
-  <!-- About Page -->
+  <!-- Report Analyzer Tool -->
   <url>
-    <loc>https://healthscan.vercel.app/about</loc>
-    <lastmod>2026-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Report Analyzer -->
-  <url>
-    <loc>https://healthscan.vercel.app/report-analyzer</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.healthreportscan.info/report-analyzer</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/report-analyzer" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/report-analyzer?lang=hi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/report-analyzer" />
   </url>
 
-  <!-- Blogs Listing -->
+  <!-- Diseases & Health Conditions Index -->
   <url>
-    <loc>https://healthscan.vercel.app/blogs</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.healthreportscan.info/diseases</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/diseases" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/diseases?lang=hi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/diseases" />
+  </url>
+
+  <!-- Common Disease Pages (Hindi Search Optimized) -->
+  <url>
+    <loc>https://www.healthreportscan.info/diseases/fungal-infection</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/diseases/fungal-infection" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/diseases/fungal-infection" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/diseases/fungal-infection" />
+  </url>
+
+  <url>
+    <loc>https://www.healthreportscan.info/diseases/mouth-ulcer</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/diseases/mouth-ulcer" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/diseases/mouth-ulcer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/diseases/mouth-ulcer" />
+  </url>
+
+  <url>
+    <loc>https://www.healthreportscan.info/diseases/piles</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/diseases/piles" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/diseases/piles" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/diseases/piles" />
+  </url>
+
+  <url>
+    <loc>https://www.healthreportscan.info/diseases/acidity</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/diseases/acidity" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/diseases/acidity" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/diseases/acidity" />
+  </url>
+
+  <url>
+    <loc>https://www.healthreportscan.info/diseases/gas-bloating</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/diseases/gas-bloating" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/diseases/gas-bloating" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/diseases/gas-bloating" />
+  </url>
+
+  <url>
+    <loc>https://www.healthreportscan.info/diseases/skin-rash</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/diseases/skin-rash" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/diseases/skin-rash" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/diseases/skin-rash" />
+  </url>
+
+  <url>
+    <loc>https://www.healthreportscan.info/diseases/fever</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/diseases/fever" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/diseases/fever" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/diseases/fever" />
+  </url>
+
+  <url>
+    <loc>https://www.healthreportscan.info/diseases/cold-cough</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/diseases/cold-cough" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/diseases/cold-cough" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/diseases/cold-cough" />
+  </url>
+
+  <url>
+    <loc>https://www.healthreportscan.info/diseases/dandruff</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/diseases/dandruff" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/diseases/dandruff" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/diseases/dandruff" />
+  </url>
+
+  <url>
+    <loc>https://www.healthreportscan.info/diseases/itching</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/diseases/itching" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/diseases/itching" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/diseases/itching" />
+  </url>
+
+  <!-- Health Blogs Listing -->
+  <url>
+    <loc>https://www.healthreportscan.info/blogs</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/blogs" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/blogs?lang=hi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/blogs" />
   </url>
 
   <!-- Blog Category Pages -->
   <url>
-    <loc>https://healthscan.vercel.app/blogs/category/fitness</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.healthreportscan.info/blogs/category/diseases</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/blogs/category/diseases" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/blogs/category/diseases" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/blogs/category/diseases" />
   </url>
 
   <url>
-    <loc>https://healthscan.vercel.app/blogs/category/mental-health</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.healthreportscan.info/blogs/category/fitness</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/blogs/category/fitness" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/blogs/category/fitness" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/blogs/category/fitness" />
   </url>
 
   <url>
-    <loc>https://healthscan.vercel.app/blogs/category/diet</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.healthreportscan.info/blogs/category/mental-health</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/blogs/category/mental-health" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/blogs/category/mental-health" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/blogs/category/mental-health" />
   </url>
 
   <url>
-    <loc>https://healthscan.vercel.app/blogs/category/diseases</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.healthreportscan.info/blogs/category/diet</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/blogs/category/diet" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/blogs/category/diet" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/blogs/category/diet" />
   </url>
 
   <url>
-    <loc>https://healthscan.vercel.app/blogs/category/wellness</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.healthreportscan.info/blogs/category/wellness</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/blogs/category/wellness" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/blogs/category/wellness" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/blogs/category/wellness" />
   </url>
 
   <url>
-    <loc>https://healthscan.vercel.app/blogs/category/prevention</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.healthreportscan.info/blogs/category/prevention</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/blogs/category/prevention" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/blogs/category/prevention" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/blogs/category/prevention" />
   </url>
 
   <url>
-    <loc>https://healthscan.vercel.app/blogs/category/lifestyle</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.healthreportscan.info/blogs/category/lifestyle</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/blogs/category/lifestyle" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/blogs/category/lifestyle" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/blogs/category/lifestyle" />
   </url>
 
-  <!-- Diseases Index -->
+  <!-- About Page -->
   <url>
-    <loc>https://healthscan.vercel.app/diseases</loc>
-    <lastmod>2026-01-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.healthreportscan.info/about</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.healthreportscan.info/about" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.healthreportscan.info/about?lang=hi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthreportscan.info/about" />
   </url>
 
-  <!-- Disclaimer -->
+  <!-- Auth Pages (Lower Priority) -->
   <url>
-    <loc>https://healthscan.vercel.app/disclaimer</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.healthreportscan.info/login</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
-  <!-- Login -->
   <url>
-    <loc>https://healthscan.vercel.app/login</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.healthreportscan.info/register</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
   </url>
 
-  <!-- Register -->
+  <!-- Legal Pages -->
   <url>
-    <loc>https://healthscan.vercel.app/register</loc>
-    <lastmod>2026-01-15</lastmod>
+    <loc>https://www.healthreportscan.info/disclaimer</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.4</priority>
   </url>
 
 </urlset>

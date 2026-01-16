@@ -34,7 +34,7 @@ export default function BloodTestAnalysis() {
     ...getMedicalWebPageSchema(
       t('seo.bloodTestTitle'),
       t('seo.bloodTestDescription'),
-      'https://healthai.vercel.app/blood-test-analysis'
+      'https://www.healthreportscan.info/blood-test-analysis'
     ),
     ...getFAQSchema(faqs)
   }

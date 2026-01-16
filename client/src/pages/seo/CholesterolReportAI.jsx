@@ -34,7 +34,7 @@ export default function CholesterolReportAI() {
     ...getMedicalWebPageSchema(
       t('seo.cholesterolTitle'),
       t('seo.cholesterolDescription'),
-      'https://healthai.vercel.app/cholesterol-report-ai'
+      'https://www.healthreportscan.info/cholesterol-report-ai'
     ),
     ...getFAQSchema(faqs)
   }
