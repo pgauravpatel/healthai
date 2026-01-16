@@ -142,7 +142,7 @@ const blogs = [
     
     // SEO metadata
     seo: {
-      metaTitle: 'Burning Sensation After Stool: Causes & Relief | Health Scan',
+      metaTitle: 'Burning Sensation After Stool: Causes & Relief',
       metaDescription: 'Learn about burning sensation in anus after passing stool. Causes include hemorrhoids, fissures, spicy food. Get home remedies and when to see a doctor.',
       keywords: ['burning after stool', 'anal burning', 'hemorrhoids', 'piles', 'rectal pain', 'home remedies'],
       hindiMeta: {
@@ -267,7 +267,7 @@ const blogs = [
     ],
     
     seo: {
-      metaTitle: 'Stomach Gas Problem: Causes & Natural Remedies | Health Scan',
+      metaTitle: 'Stomach Gas Problem: Causes & Natural Remedies',
       metaDescription: 'Learn about stomach gas causes, symptoms and natural remedies. Try ginger, fennel seeds, ajwain for quick relief. When to see a doctor for bloating.',
       keywords: ['stomach gas', 'bloating', 'gas problem', 'flatulence', 'home remedies', 'digestive health'],
       hindiMeta: {
@@ -578,7 +578,7 @@ const blogs = [
     ],
     
     seo: {
-      metaTitle: 'Understanding Anxiety: Signs & Coping Strategies | Health Scan',
+      metaTitle: 'Understanding Anxiety: Signs & Coping Tips',
       metaDescription: 'Learn about anxiety symptoms, causes, and effective coping strategies. Expert tips for managing anxiety and when to seek professional help.',
       keywords: ['anxiety', 'mental health', 'coping strategies', 'stress management'],
       hindiMeta: {
@@ -675,7 +675,7 @@ const blogs = [
     ],
     
     seo: {
-      metaTitle: '15 Tips for Better Sleep | Sleep Hygiene Guide | Health Scan',
+      metaTitle: '15 Tips for Better Sleep | Sleep Hygiene Guide',
       metaDescription: 'Improve your sleep with these 15 expert tips. Learn about sleep hygiene, creating the perfect sleep environment, and healthy bedtime habits.',
       keywords: ['sleep tips', 'better sleep', 'sleep hygiene', 'insomnia'],
       hindiMeta: {
