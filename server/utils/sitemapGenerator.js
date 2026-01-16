@@ -21,9 +21,8 @@ const STATIC_PAGES = [
   { path: '/diseases', priority: '0.85', changefreq: 'weekly' },
   { path: '/blogs', priority: '0.8', changefreq: 'daily' },
   { path: '/about', priority: '0.7', changefreq: 'monthly' },
-  { path: '/login', priority: '0.5', changefreq: 'monthly' },
-  { path: '/register', priority: '0.5', changefreq: 'monthly' },
   { path: '/disclaimer', priority: '0.4', changefreq: 'monthly' },
+  // NOTE: /login and /register excluded - no SEO value
 ];
 
 /**
